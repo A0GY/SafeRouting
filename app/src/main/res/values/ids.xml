@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Crime data resources -->
+    <item name="crime_data" type="id"/>
+    <item name="crime_data_updated" type="id"/>
+    <item name="crime_data_original_backup" type="id"/>
+</resources> 

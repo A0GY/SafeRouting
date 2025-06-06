@@ -1,0 +1,5672 @@
+[
+  {
+    "latitude": 51.5506975571,
+    "longitude": -0.1644540638,
+    "severity": 4.8,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3131331174,
+    "longitude": 0.0437466702,
+    "severity": 3.1,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5717339021,
+    "longitude": -0.2211727859,
+    "severity": 6.4,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5847116107,
+    "longitude": -0.1250649695,
+    "severity": 9.4,
+    "date": "2025-03-18",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6844930216,
+    "longitude": -0.1621421678,
+    "severity": 5.0,
+    "date": "2025-04-11",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3346983625,
+    "longitude": -0.2453262577,
+    "severity": 9.5,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5923899939,
+    "longitude": 0.0869990068,
+    "severity": 3.2,
+    "date": "2025-04-17",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4891038248,
+    "longitude": -0.1329140543,
+    "severity": 8.5,
+    "date": "2025-04-16",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5584420045,
+    "longitude": -0.2796294551,
+    "severity": 8.8,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6143278714,
+    "longitude": -0.1463173173,
+    "severity": 8.3,
+    "date": "2025-04-06",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4773089302,
+    "longitude": 0.0285867954,
+    "severity": 7.0,
+    "date": "2025-03-18",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4740873601,
+    "longitude": -0.0097595232,
+    "severity": 4.5,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6284635523,
+    "longitude": -0.1241149477,
+    "severity": 9.8,
+    "date": "2025-03-22",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6915191932,
+    "longitude": -0.2656695596,
+    "severity": 4.4,
+    "date": "2025-03-26",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.6019546848,
+    "longitude": 0.0572728728,
+    "severity": 5.6,
+    "date": "2025-04-05",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5815629821,
+    "longitude": -0.2781128754,
+    "severity": 6.7,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3693266639,
+    "longitude": 0.0822671089,
+    "severity": 4.5,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4739626168,
+    "longitude": -0.0185211982,
+    "severity": 1.8,
+    "date": "2025-03-18",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3684380337,
+    "longitude": -0.0448409812,
+    "severity": 4.7,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5997686401,
+    "longitude": -0.0703153065,
+    "severity": 5.2,
+    "date": "2025-04-17",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5180583302,
+    "longitude": -0.0527951535,
+    "severity": 6.9,
+    "date": "2025-04-05",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4546763451,
+    "longitude": -0.2162080151,
+    "severity": 6.7,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6241257923,
+    "longitude": -0.1364430512,
+    "severity": 9.6,
+    "date": "2025-04-02",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5500439234,
+    "longitude": 0.0681461647,
+    "severity": 4.3,
+    "date": "2025-04-17",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4722606739,
+    "longitude": -0.0295789293,
+    "severity": 8.4,
+    "date": "2025-04-15",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4942549715,
+    "longitude": -0.2690703175,
+    "severity": 6.3,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3762795956,
+    "longitude": 0.0466266861,
+    "severity": 2.2,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5385092335,
+    "longitude": -0.0232883653,
+    "severity": 5.0,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3819285942,
+    "longitude": -0.1541127983,
+    "severity": 9.0,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6973676243,
+    "longitude": -0.1634652854,
+    "severity": 4.3,
+    "date": "2025-04-17",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5801322,
+    "longitude": 0.2461222,
+    "severity": 9.2,
+    "date": "2025-04-05",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6490889,
+    "longitude": 0.0653401,
+    "severity": 3.9,
+    "date": "2025-03-29",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3287417,
+    "longitude": -0.4069014,
+    "severity": 2.4,
+    "date": "2025-03-24",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5485763,
+    "longitude": 0.2091184,
+    "severity": 7.0,
+    "date": "2025-04-14",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3365262,
+    "longitude": -0.4839104,
+    "severity": 4.7,
+    "date": "2025-03-28",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.2914524,
+    "longitude": -0.4509615,
+    "severity": 5.0,
+    "date": "2025-03-19",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.2876355,
+    "longitude": -0.4853366,
+    "severity": 4.3,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5397312,
+    "longitude": -0.0137144,
+    "severity": 3.2,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4080063,
+    "longitude": -0.3714549,
+    "severity": 7.7,
+    "date": "2025-04-13",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3866097,
+    "longitude": -0.1489179,
+    "severity": 5.9,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.620691,
+    "longitude": -0.4081877,
+    "severity": 5.6,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4640087,
+    "longitude": 0.2791413,
+    "severity": 4.1,
+    "date": "2025-04-10",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3242484,
+    "longitude": -0.0758401,
+    "severity": 3.0,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6462125,
+    "longitude": -0.3665532,
+    "severity": 8.3,
+    "date": "2025-03-29",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.522653,
+    "longitude": 0.0450814,
+    "severity": 2.0,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.500221,
+    "longitude": -0.2702995,
+    "severity": 3.1,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6490314,
+    "longitude": 0.0164909,
+    "severity": 8.4,
+    "date": "2025-03-23",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4001184,
+    "longitude": 0.1930002,
+    "severity": 3.5,
+    "date": "2025-04-11",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5913581,
+    "longitude": 0.2994846,
+    "severity": 1.8,
+    "date": "2025-03-27",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.4105727,
+    "longitude": -0.3015914,
+    "severity": 9.2,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6225783,
+    "longitude": 0.2564077,
+    "severity": 4.2,
+    "date": "2025-04-13",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6917802,
+    "longitude": 0.0521694,
+    "severity": 7.0,
+    "date": "2025-04-01",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4728665,
+    "longitude": -0.3952576,
+    "severity": 7.4,
+    "date": "2025-03-18",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4229481,
+    "longitude": -0.3837488,
+    "severity": 4.1,
+    "date": "2025-04-04",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3041939,
+    "longitude": 0.1318974,
+    "severity": 6.0,
+    "date": "2025-04-17",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4113651,
+    "longitude": -0.2095956,
+    "severity": 6.0,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5779715,
+    "longitude": -0.2835036,
+    "severity": 5.5,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6218685,
+    "longitude": -0.1246182,
+    "severity": 5.9,
+    "date": "2025-04-01",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5735156,
+    "longitude": 0.1685508,
+    "severity": 5.2,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4499174,
+    "longitude": 0.0449526,
+    "severity": 9.0,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3049445,
+    "longitude": -0.340559,
+    "severity": 5.2,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.6550306,
+    "longitude": -0.4933801,
+    "severity": 9.0,
+    "date": "2025-04-17",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.645055,
+    "longitude": 0.0859335,
+    "severity": 7.7,
+    "date": "2025-04-03",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6631156,
+    "longitude": 0.1167107,
+    "severity": 3.3,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.6959448,
+    "longitude": -0.1067282,
+    "severity": 5.2,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.2969509,
+    "longitude": -0.4264629,
+    "severity": 4.3,
+    "date": "2025-04-02",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4057911,
+    "longitude": -0.4706893,
+    "severity": 1.2,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5875502,
+    "longitude": 0.1484502,
+    "severity": 4.7,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.6990234,
+    "longitude": 0.0517421,
+    "severity": 7.3,
+    "date": "2025-04-13",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4343918,
+    "longitude": 0.2407703,
+    "severity": 6.4,
+    "date": "2025-04-16",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6092194,
+    "longitude": 0.2652097,
+    "severity": 2.4,
+    "date": "2025-03-21",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4998617,
+    "longitude": -0.2188205,
+    "severity": 4.5,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3980521,
+    "longitude": -0.1825735,
+    "severity": 5.7,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4562601,
+    "longitude": 0.0729931,
+    "severity": 5.0,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.605493,
+    "longitude": 0.2299909,
+    "severity": 4.0,
+    "date": "2025-04-08",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3387157,
+    "longitude": -0.2551326,
+    "severity": 3.0,
+    "date": "2025-04-02",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.2977191,
+    "longitude": 0.1645732,
+    "severity": 2.1,
+    "date": "2025-04-11",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6367831,
+    "longitude": -0.1821214,
+    "severity": 1.3,
+    "date": "2025-04-11",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.543998,
+    "longitude": 0.2427325,
+    "severity": 1.2,
+    "date": "2025-03-28",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.570759,
+    "longitude": -0.2143823,
+    "severity": 6.6,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3083809,
+    "longitude": -0.2809883,
+    "severity": 7.6,
+    "date": "2025-04-07",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4429717,
+    "longitude": 0.0403164,
+    "severity": 7.8,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3765348,
+    "longitude": 0.0919039,
+    "severity": 4.2,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6582075,
+    "longitude": -0.0728124,
+    "severity": 7.8,
+    "date": "2025-03-28",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5426832,
+    "longitude": -0.3232412,
+    "severity": 7.6,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3475619,
+    "longitude": 0.1813713,
+    "severity": 9.1,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4528073,
+    "longitude": 0.1129607,
+    "severity": 3.7,
+    "date": "2025-03-22",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.2838389,
+    "longitude": 0.1385481,
+    "severity": 4.9,
+    "date": "2025-04-04",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.541952,
+    "longitude": -0.0042726,
+    "severity": 4.7,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.459625,
+    "longitude": -0.2835609,
+    "severity": 7.1,
+    "date": "2025-04-09",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.33238,
+    "longitude": -0.1129172,
+    "severity": 1.5,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5378645,
+    "longitude": -0.3164307,
+    "severity": 7.3,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5421642,
+    "longitude": 0.1735676,
+    "severity": 5.0,
+    "date": "2025-04-07",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5994939,
+    "longitude": 0.2774495,
+    "severity": 4.3,
+    "date": "2025-03-27",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4988093,
+    "longitude": -0.4526585,
+    "severity": 5.3,
+    "date": "2025-04-06",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.6012345,
+    "longitude": 0.2321779,
+    "severity": 5.8,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.324478,
+    "longitude": -0.2510427,
+    "severity": 7.8,
+    "date": "2025-03-18",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4099006,
+    "longitude": 0.0152201,
+    "severity": 1.5,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5471467,
+    "longitude": 0.085101,
+    "severity": 7.7,
+    "date": "2025-03-20",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4077644,
+    "longitude": 0.1055646,
+    "severity": 6.2,
+    "date": "2025-04-04",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5747596,
+    "longitude": -0.4384315,
+    "severity": 8.0,
+    "date": "2025-04-13",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5775808,
+    "longitude": -0.1465847,
+    "severity": 4.6,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3010889,
+    "longitude": -0.2857816,
+    "severity": 1.0,
+    "date": "2025-04-17",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3362062,
+    "longitude": -0.2781397,
+    "severity": 9.1,
+    "date": "2025-03-29",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4170595,
+    "longitude": -0.4968082,
+    "severity": 2.1,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.6472294,
+    "longitude": -0.367303,
+    "severity": 6.4,
+    "date": "2025-03-28",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3601363,
+    "longitude": -0.0426088,
+    "severity": 6.3,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4262713,
+    "longitude": -0.3074608,
+    "severity": 7.7,
+    "date": "2025-04-12",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5137878,
+    "longitude": 0.2221293,
+    "severity": 6.1,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4803327,
+    "longitude": -0.2485882,
+    "severity": 5.0,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3673189,
+    "longitude": -0.1542874,
+    "severity": 1.8,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.62488,
+    "longitude": 0.1588543,
+    "severity": 1.6,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6308072,
+    "longitude": 0.0216054,
+    "severity": 1.8,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.4004792,
+    "longitude": -0.2750301,
+    "severity": 5.1,
+    "date": "2025-03-27",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4758479,
+    "longitude": -0.0699887,
+    "severity": 3.3,
+    "date": "2025-03-21",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6381816,
+    "longitude": 0.0445291,
+    "severity": 8.1,
+    "date": "2025-04-07",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5584278,
+    "longitude": -0.0394638,
+    "severity": 3.5,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5559364,
+    "longitude": -0.1466539,
+    "severity": 5.4,
+    "date": "2025-04-06",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3381658,
+    "longitude": -0.3484464,
+    "severity": 1.5,
+    "date": "2025-03-24",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3953875,
+    "longitude": 0.084134,
+    "severity": 9.3,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5148748,
+    "longitude": 0.0429965,
+    "severity": 8.4,
+    "date": "2025-03-22",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3361351,
+    "longitude": -0.255233,
+    "severity": 2.3,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3466838,
+    "longitude": -0.3814113,
+    "severity": 2.3,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5107531,
+    "longitude": -0.2784226,
+    "severity": 5.0,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3283449,
+    "longitude": 0.1488524,
+    "severity": 7.8,
+    "date": "2025-03-24",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5203474,
+    "longitude": 0.0613116,
+    "severity": 4.9,
+    "date": "2025-03-25",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.371281,
+    "longitude": -0.2765665,
+    "severity": 6.5,
+    "date": "2025-03-26",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4588422,
+    "longitude": -0.0245547,
+    "severity": 2.9,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.6883025,
+    "longitude": -0.2769987,
+    "severity": 8.3,
+    "date": "2025-04-13",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6963236,
+    "longitude": -0.3395627,
+    "severity": 4.6,
+    "date": "2025-04-11",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.350724,
+    "longitude": 0.0960642,
+    "severity": 8.7,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4802103,
+    "longitude": -0.1700323,
+    "severity": 2.5,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.365083,
+    "longitude": 0.0646478,
+    "severity": 1.5,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4120822,
+    "longitude": -0.1295013,
+    "severity": 9.5,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5611755,
+    "longitude": -0.1745953,
+    "severity": 4.7,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.299595,
+    "longitude": -0.3230469,
+    "severity": 7.4,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5227735,
+    "longitude": -0.1817706,
+    "severity": 7.0,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6324712,
+    "longitude": -0.3270226,
+    "severity": 5.8,
+    "date": "2025-03-25",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6545382,
+    "longitude": 0.2812725,
+    "severity": 6.8,
+    "date": "2025-03-26",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.6163606,
+    "longitude": -0.3297711,
+    "severity": 7.6,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3750255,
+    "longitude": 0.0307005,
+    "severity": 8.7,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5029546,
+    "longitude": 0.1067887,
+    "severity": 5.2,
+    "date": "2025-04-01",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6608345,
+    "longitude": -0.2413672,
+    "severity": 7.0,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5556083,
+    "longitude": 0.2577413,
+    "severity": 2.6,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3024205,
+    "longitude": -0.3339612,
+    "severity": 8.8,
+    "date": "2025-04-06",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3608502,
+    "longitude": -0.1974133,
+    "severity": 4.4,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4231852,
+    "longitude": 0.0655609,
+    "severity": 7.0,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3308838,
+    "longitude": -0.0517852,
+    "severity": 1.8,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4155954,
+    "longitude": 0.2804524,
+    "severity": 8.5,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3412232,
+    "longitude": 0.2562016,
+    "severity": 8.4,
+    "date": "2025-04-14",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4824645,
+    "longitude": -0.0734762,
+    "severity": 8.4,
+    "date": "2025-04-06",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4911393,
+    "longitude": 0.2471024,
+    "severity": 7.7,
+    "date": "2025-03-26",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.504883,
+    "longitude": 0.0188804,
+    "severity": 4.9,
+    "date": "2025-04-07",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.596075,
+    "longitude": -0.4070532,
+    "severity": 1.5,
+    "date": "2025-03-18",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.4837839,
+    "longitude": -0.2848533,
+    "severity": 7.5,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4299796,
+    "longitude": -0.4973727,
+    "severity": 8.6,
+    "date": "2025-04-05",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5023471,
+    "longitude": 0.0152292,
+    "severity": 8.2,
+    "date": "2025-04-04",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3156259,
+    "longitude": -0.3172814,
+    "severity": 9.1,
+    "date": "2025-03-20",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5149318,
+    "longitude": -0.1588974,
+    "severity": 9.8,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6803307,
+    "longitude": -0.341571,
+    "severity": 6.2,
+    "date": "2025-03-29",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5825139,
+    "longitude": -0.0642897,
+    "severity": 2.2,
+    "date": "2025-04-17",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4557191,
+    "longitude": 0.0449257,
+    "severity": 6.2,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3114946,
+    "longitude": 0.2923487,
+    "severity": 5.5,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.605054,
+    "longitude": -0.2724057,
+    "severity": 4.3,
+    "date": "2025-04-14",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6894993,
+    "longitude": 0.0028404,
+    "severity": 4.3,
+    "date": "2025-04-14",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6168767,
+    "longitude": 0.2167905,
+    "severity": 5.5,
+    "date": "2025-03-31",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3556597,
+    "longitude": -0.080797,
+    "severity": 6.6,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.2927914,
+    "longitude": -0.4540807,
+    "severity": 1.3,
+    "date": "2025-04-09",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5112334,
+    "longitude": -0.3196462,
+    "severity": 8.9,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.6993965,
+    "longitude": -0.2283569,
+    "severity": 2.4,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5620216,
+    "longitude": 0.0985966,
+    "severity": 7.6,
+    "date": "2025-03-22",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4887656,
+    "longitude": -0.1669564,
+    "severity": 4.7,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3990582,
+    "longitude": -0.3526542,
+    "severity": 5.0,
+    "date": "2025-04-08",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3426325,
+    "longitude": 0.0773785,
+    "severity": 8.6,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3135514,
+    "longitude": -0.3982631,
+    "severity": 7.7,
+    "date": "2025-04-01",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4941756,
+    "longitude": -0.3489281,
+    "severity": 2.9,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3394889,
+    "longitude": 0.1375708,
+    "severity": 5.4,
+    "date": "2025-03-27",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4622718,
+    "longitude": -0.3224945,
+    "severity": 7.9,
+    "date": "2025-04-15",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4986883,
+    "longitude": -0.2435871,
+    "severity": 6.9,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6410804,
+    "longitude": 0.2116489,
+    "severity": 1.1,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.6009691,
+    "longitude": -0.4480236,
+    "severity": 5.5,
+    "date": "2025-03-27",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.2958085,
+    "longitude": -0.3354426,
+    "severity": 9.8,
+    "date": "2025-03-23",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4525986,
+    "longitude": -0.3419312,
+    "severity": 9.1,
+    "date": "2025-03-31",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.4968265,
+    "longitude": -0.3713565,
+    "severity": 4.9,
+    "date": "2025-04-02",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6251668,
+    "longitude": -0.1762069,
+    "severity": 6.1,
+    "date": "2025-04-14",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3755466,
+    "longitude": 0.014487,
+    "severity": 3.2,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4517834,
+    "longitude": -0.282122,
+    "severity": 5.4,
+    "date": "2025-04-07",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5311841,
+    "longitude": -0.1997154,
+    "severity": 8.3,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3113868,
+    "longitude": 0.2086152,
+    "severity": 4.0,
+    "date": "2025-04-02",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.2964903,
+    "longitude": -0.1332757,
+    "severity": 3.4,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.4562364,
+    "longitude": 0.2784809,
+    "severity": 1.4,
+    "date": "2025-03-21",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3375345,
+    "longitude": 0.1023339,
+    "severity": 1.1,
+    "date": "2025-04-11",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6402695,
+    "longitude": -0.483608,
+    "severity": 1.7,
+    "date": "2025-04-02",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5021547,
+    "longitude": -0.3360464,
+    "severity": 1.5,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.6346931,
+    "longitude": 0.270381,
+    "severity": 2.2,
+    "date": "2025-04-17",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5017825,
+    "longitude": -0.3342635,
+    "severity": 4.2,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4060374,
+    "longitude": -0.1103659,
+    "severity": 6.8,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5377847,
+    "longitude": -0.03156,
+    "severity": 7.0,
+    "date": "2025-04-08",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4488172,
+    "longitude": -0.418841,
+    "severity": 4.3,
+    "date": "2025-04-09",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6446385,
+    "longitude": 0.1975275,
+    "severity": 9.1,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3817179,
+    "longitude": -0.4128856,
+    "severity": 8.6,
+    "date": "2025-03-23",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3214032,
+    "longitude": 0.1730841,
+    "severity": 7.5,
+    "date": "2025-04-02",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3402731,
+    "longitude": 0.2098486,
+    "severity": 8.5,
+    "date": "2025-03-18",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6349475,
+    "longitude": -0.056179,
+    "severity": 5.3,
+    "date": "2025-03-23",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5242736,
+    "longitude": 0.2737401,
+    "severity": 3.0,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.665478,
+    "longitude": 0.1406612,
+    "severity": 3.5,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4821265,
+    "longitude": 0.2531334,
+    "severity": 3.7,
+    "date": "2025-04-01",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.353902,
+    "longitude": -0.4809885,
+    "severity": 9.2,
+    "date": "2025-03-29",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3502581,
+    "longitude": 0.2645688,
+    "severity": 7.2,
+    "date": "2025-03-25",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.6554752,
+    "longitude": -0.3045886,
+    "severity": 7.9,
+    "date": "2025-04-11",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5213673,
+    "longitude": 0.2346508,
+    "severity": 5.2,
+    "date": "2025-04-07",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.531899,
+    "longitude": 0.2977409,
+    "severity": 3.4,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4974334,
+    "longitude": -0.451115,
+    "severity": 1.5,
+    "date": "2025-04-07",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4979608,
+    "longitude": 0.0283547,
+    "severity": 3.1,
+    "date": "2025-03-21",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.2957613,
+    "longitude": -0.3539816,
+    "severity": 6.0,
+    "date": "2025-04-16",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3394851,
+    "longitude": -0.4481547,
+    "severity": 4.8,
+    "date": "2025-04-10",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3024211,
+    "longitude": -0.3173086,
+    "severity": 4.4,
+    "date": "2025-04-02",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3444914,
+    "longitude": -0.3751048,
+    "severity": 7.2,
+    "date": "2025-03-31",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3743491,
+    "longitude": 0.2310772,
+    "severity": 6.4,
+    "date": "2025-04-05",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.6455487,
+    "longitude": -0.439831,
+    "severity": 9.3,
+    "date": "2025-03-19",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3538947,
+    "longitude": 0.1500528,
+    "severity": 4.2,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5049479,
+    "longitude": 0.162668,
+    "severity": 5.4,
+    "date": "2025-04-14",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3452054,
+    "longitude": 0.1100708,
+    "severity": 1.1,
+    "date": "2025-03-29",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5550722,
+    "longitude": 0.2417645,
+    "severity": 1.5,
+    "date": "2025-03-29",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4932025,
+    "longitude": -0.044487,
+    "severity": 2.3,
+    "date": "2025-04-15",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.5158724,
+    "longitude": -0.0132523,
+    "severity": 4.8,
+    "date": "2025-03-29",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3059106,
+    "longitude": -0.4263934,
+    "severity": 6.2,
+    "date": "2025-04-07",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.6538758,
+    "longitude": 0.1954069,
+    "severity": 4.3,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4002235,
+    "longitude": -0.3368515,
+    "severity": 3.1,
+    "date": "2025-04-04",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5145682,
+    "longitude": 0.2301639,
+    "severity": 1.2,
+    "date": "2025-04-11",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.550871043984756,
+    "longitude": -0.16618954001005515,
+    "severity": 5.1,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.55248153211756,
+    "longitude": -0.1652062629790957,
+    "severity": 5.0,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.55237696133076,
+    "longitude": -0.16639097727161464,
+    "severity": 5.1,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.54938787111345,
+    "longitude": -0.16504119243853274,
+    "severity": 4.6,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.551162340891054,
+    "longitude": -0.16381569544214886,
+    "severity": 5.1,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.552388127088875,
+    "longitude": -0.1660578818107961,
+    "severity": 4.4,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.550953348198156,
+    "longitude": -0.16484864760521223,
+    "severity": 5.3,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.55261117538089,
+    "longitude": -0.16640150585882538,
+    "severity": 4.4,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.551478971461584,
+    "longitude": -0.16429186268142257,
+    "severity": 5.0,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.549953263691535,
+    "longitude": -0.16339997359017888,
+    "severity": 5.1,
+    "date": "2025-04-09",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.311233203917546,
+    "longitude": 0.04400307536266859,
+    "severity": 2.6,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.31490269963296,
+    "longitude": 0.04306844921579273,
+    "severity": 3.5,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.313996123497205,
+    "longitude": 0.04433817137594456,
+    "severity": 2.7,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3145335678279,
+    "longitude": 0.04328836370095256,
+    "severity": 3.2,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.311898233560186,
+    "longitude": 0.04221067666458112,
+    "severity": 2.9,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.31433347189318,
+    "longitude": 0.044851529220222924,
+    "severity": 3.3,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.31272665714759,
+    "longitude": 0.043044104760599645,
+    "severity": 3.3,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.31117719197137,
+    "longitude": 0.04334143731989381,
+    "severity": 3.1,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.314226436610134,
+    "longitude": 0.04293255599307811,
+    "severity": 3.2,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.31203559747246,
+    "longitude": 0.04395322391936604,
+    "severity": 2.6,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57153022199164,
+    "longitude": -0.22284809739016523,
+    "severity": 6.4,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57021586908617,
+    "longitude": -0.21978070050179377,
+    "severity": 6.6,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57253697203011,
+    "longitude": -0.21951669748000777,
+    "severity": 6.8,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57235807947899,
+    "longitude": -0.21948569667076967,
+    "severity": 6.6,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57329164596422,
+    "longitude": -0.22064268277856416,
+    "severity": 6.4,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57328435184143,
+    "longitude": -0.22228492849536213,
+    "severity": 6.6,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57285410302422,
+    "longitude": -0.22102137171784186,
+    "severity": 6.9,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.572424095363964,
+    "longitude": -0.222100208118016,
+    "severity": 6.0,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.57067727659914,
+    "longitude": -0.22216419305658627,
+    "severity": 6.8,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.571415286668994,
+    "longitude": -0.22251626781263872,
+    "severity": 6.3,
+    "date": "2025-04-13",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.33449678133158,
+    "longitude": -0.24635490307282237,
+    "severity": 9.4,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.334372202097185,
+    "longitude": -0.24387512284951915,
+    "severity": 9.9,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33466584704524,
+    "longitude": -0.24416918583121539,
+    "severity": 9.8,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33317334773108,
+    "longitude": -0.24444163659730894,
+    "severity": 10.0,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33569105930255,
+    "longitude": -0.24339329403128784,
+    "severity": 9.3,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33401355921249,
+    "longitude": -0.24553905768448206,
+    "severity": 9.3,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33460745790567,
+    "longitude": -0.24537730153863513,
+    "severity": 9.4,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33340715408326,
+    "longitude": -0.24731021779497156,
+    "severity": 9.8,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.33350506995269,
+    "longitude": -0.24341884562809657,
+    "severity": 9.2,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.334054089536046,
+    "longitude": -0.24379150338531602,
+    "severity": 9.3,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.560171091865456,
+    "longitude": -0.27818893413937923,
+    "severity": 8.4,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.56038476540496,
+    "longitude": -0.27880278834185973,
+    "severity": 9.2,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.55970569498311,
+    "longitude": -0.28131832228623205,
+    "severity": 8.9,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.556985071828144,
+    "longitude": -0.27832815133001726,
+    "severity": 8.9,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.558623343808975,
+    "longitude": -0.278368467475757,
+    "severity": 9.3,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.559126583218735,
+    "longitude": -0.2798749495609469,
+    "severity": 8.9,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.56037223127697,
+    "longitude": -0.28090449929833655,
+    "severity": 8.7,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.55798730074921,
+    "longitude": -0.2813870628621836,
+    "severity": 8.6,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.557074266921454,
+    "longitude": -0.27880804687678945,
+    "severity": 8.8,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.55968411626664,
+    "longitude": -0.27840495268148746,
+    "severity": 8.4,
+    "date": "2025-04-05",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.36883793605184,
+    "longitude": 0.08384340800862168,
+    "severity": 4.3,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36770164780728,
+    "longitude": 0.08148690213847672,
+    "severity": 4.8,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37015341042852,
+    "longitude": 0.08082053137581068,
+    "severity": 4.2,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36735030060388,
+    "longitude": 0.08063970805566749,
+    "severity": 5.0,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37125717983968,
+    "longitude": 0.08181176955243606,
+    "severity": 4.7,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36768462518171,
+    "longitude": 0.08303508512067626,
+    "severity": 4.1,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.369410141430755,
+    "longitude": 0.08050346305997595,
+    "severity": 4.9,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36958384448584,
+    "longitude": 0.08237131698284778,
+    "severity": 4.6,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.371104261178964,
+    "longitude": 0.08225977926131389,
+    "severity": 4.3,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36817103268136,
+    "longitude": 0.08418872150816804,
+    "severity": 4.5,
+    "date": "2025-04-13",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.370166700537716,
+    "longitude": -0.045630330389116514,
+    "severity": 4.7,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.366760728703596,
+    "longitude": -0.04402609785022464,
+    "severity": 4.5,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37009273716605,
+    "longitude": -0.04410558295595583,
+    "severity": 4.8,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.370236899010145,
+    "longitude": -0.04364608378262433,
+    "severity": 5.1,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36866535394546,
+    "longitude": -0.04659121179986279,
+    "severity": 5.1,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36992070015565,
+    "longitude": -0.045819579282609386,
+    "severity": 5.1,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.368751857805826,
+    "longitude": -0.044525329150343525,
+    "severity": 4.9,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36700448022043,
+    "longitude": -0.04333645590809132,
+    "severity": 4.4,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36940539310511,
+    "longitude": -0.04442454360634227,
+    "severity": 5.0,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.369425880667606,
+    "longitude": -0.0431875877797551,
+    "severity": 5.1,
+    "date": "2025-04-03",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.45496727231487,
+    "longitude": -0.217702144423383,
+    "severity": 6.8,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45431762102399,
+    "longitude": -0.2149652218280408,
+    "severity": 6.6,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45428674089165,
+    "longitude": -0.21552726329556804,
+    "severity": 6.7,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.452679779842335,
+    "longitude": -0.2148304338284025,
+    "severity": 6.7,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45649464301452,
+    "longitude": -0.21613664784194042,
+    "severity": 6.4,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45468897220081,
+    "longitude": -0.2172898915972915,
+    "severity": 7.0,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.453990643691554,
+    "longitude": -0.21676283843340696,
+    "severity": 6.7,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4528899346395,
+    "longitude": -0.2149325842098594,
+    "severity": 6.7,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4532456607579,
+    "longitude": -0.2148464331936208,
+    "severity": 6.6,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.455702307907735,
+    "longitude": -0.21628326593511626,
+    "severity": 6.2,
+    "date": "2025-03-22",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.494477904099675,
+    "longitude": -0.2678065036256811,
+    "severity": 6.3,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.493486278266,
+    "longitude": -0.26719747591427834,
+    "severity": 6.1,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.493074029962514,
+    "longitude": -0.27081042298158803,
+    "severity": 5.9,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.49314544394166,
+    "longitude": -0.26830919819906973,
+    "severity": 6.6,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.493438681883006,
+    "longitude": -0.2697838635974204,
+    "severity": 6.5,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.492444320627,
+    "longitude": -0.2686184559267957,
+    "severity": 6.4,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.493716080224054,
+    "longitude": -0.269171482042221,
+    "severity": 6.3,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.49468467854716,
+    "longitude": -0.2701548459201595,
+    "severity": 6.8,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.49531198004913,
+    "longitude": -0.2693470701203403,
+    "severity": 5.9,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.494978670768006,
+    "longitude": -0.2701749260085808,
+    "severity": 5.8,
+    "date": "2025-04-02",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.37433000714002,
+    "longitude": 0.04519961089142463,
+    "severity": 2.1,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.377117254933,
+    "longitude": 0.04635047759954222,
+    "severity": 2.1,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37624623782608,
+    "longitude": 0.048341818175263236,
+    "severity": 1.9,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37783235328875,
+    "longitude": 0.04633842309932825,
+    "severity": 2.4,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37527370878298,
+    "longitude": 0.04672832832221596,
+    "severity": 2.6,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37644092647821,
+    "longitude": 0.04777979251521375,
+    "severity": 1.8,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37613623266265,
+    "longitude": 0.047402372352341,
+    "severity": 1.8,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.377989903029246,
+    "longitude": 0.048589444463468794,
+    "severity": 2.7,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37756382037075,
+    "longitude": 0.04554388055608935,
+    "severity": 2.4,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.37750296459858,
+    "longitude": 0.048422181495828893,
+    "severity": 2.5,
+    "date": "2025-04-01",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.38029266239324,
+    "longitude": -0.1531158198714649,
+    "severity": 9.0,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38250403034933,
+    "longitude": -0.15458499503388032,
+    "severity": 8.9,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38358737137885,
+    "longitude": -0.1536581977867344,
+    "severity": 8.9,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38137016232446,
+    "longitude": -0.15544084556570925,
+    "severity": 8.5,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3826696117937,
+    "longitude": -0.15588511623982623,
+    "severity": 9.4,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38018905684288,
+    "longitude": -0.15430235088208188,
+    "severity": 9.0,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.381398142469855,
+    "longitude": -0.15413465952590857,
+    "severity": 8.7,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38372184331978,
+    "longitude": -0.1522924707586734,
+    "severity": 9.3,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38342156759611,
+    "longitude": -0.154874985591198,
+    "severity": 9.4,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.380599868472316,
+    "longitude": -0.1547371698381762,
+    "severity": 8.5,
+    "date": "2025-04-14",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.38839174568701,
+    "longitude": -0.14765424393409618,
+    "severity": 6.0,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.38508279920425,
+    "longitude": -0.15082666381731671,
+    "severity": 5.7,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.386280000317036,
+    "longitude": -0.14952707560965192,
+    "severity": 6.0,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.387819935366124,
+    "longitude": -0.1497418214335534,
+    "severity": 6.3,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.38791296938529,
+    "longitude": -0.14709526320687555,
+    "severity": 6.3,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.38541480402388,
+    "longitude": -0.14923832719472746,
+    "severity": 5.9,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.384863349556795,
+    "longitude": -0.1471122270389496,
+    "severity": 5.7,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.386833105786685,
+    "longitude": -0.14705647662836147,
+    "severity": 5.7,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.38609861028397,
+    "longitude": -0.14944571343860577,
+    "severity": 5.6,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.385890559150525,
+    "longitude": -0.14713122137873275,
+    "severity": 6.0,
+    "date": "2025-03-24",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.324065634844985,
+    "longitude": -0.07532419378006536,
+    "severity": 2.9,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.325751423594674,
+    "longitude": -0.07726517457198197,
+    "severity": 2.9,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.32261665750902,
+    "longitude": -0.07781711851639764,
+    "severity": 3.3,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.32624415565958,
+    "longitude": -0.07467727548288373,
+    "severity": 3.1,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.3258470878276,
+    "longitude": -0.07583287269224831,
+    "severity": 2.9,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.32594142864693,
+    "longitude": -0.07775643757516683,
+    "severity": 3.1,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.32269781377445,
+    "longitude": -0.07591952510102555,
+    "severity": 2.8,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.32551065379849,
+    "longitude": -0.0768385549484927,
+    "severity": 2.8,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.32268457273529,
+    "longitude": -0.07592684696375167,
+    "severity": 2.5,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.324024439933346,
+    "longitude": -0.07598956399599754,
+    "severity": 3.0,
+    "date": "2025-03-25",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50184551332405,
+    "longitude": -0.2703976662823163,
+    "severity": 3.4,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49927109763706,
+    "longitude": -0.2697626089956388,
+    "severity": 3.4,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.501412328900294,
+    "longitude": -0.2712461742694733,
+    "severity": 2.8,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50049851033319,
+    "longitude": -0.2699581699738994,
+    "severity": 2.6,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50050392047941,
+    "longitude": -0.2711979397011235,
+    "severity": 2.8,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.500720373662475,
+    "longitude": -0.2722305251005904,
+    "severity": 3.0,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50009434721463,
+    "longitude": -0.26968290756342883,
+    "severity": 3.3,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50092220125517,
+    "longitude": -0.2716804748093835,
+    "severity": 2.9,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50026255116474,
+    "longitude": -0.26893432668422,
+    "severity": 3.0,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.500799984096744,
+    "longitude": -0.2710585344860064,
+    "severity": 2.8,
+    "date": "2025-03-20",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.41195432952758,
+    "longitude": -0.20854604528337306,
+    "severity": 6.2,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.41258135294363,
+    "longitude": -0.2108563350557325,
+    "severity": 6.0,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.41214105552266,
+    "longitude": -0.2100397756048815,
+    "severity": 6.4,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.410105382916456,
+    "longitude": -0.20922341196491742,
+    "severity": 5.7,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.413088792193356,
+    "longitude": -0.20768287499863894,
+    "severity": 6.4,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.41013248912228,
+    "longitude": -0.20995278773928294,
+    "severity": 6.3,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.41065884428129,
+    "longitude": -0.2095153574750121,
+    "severity": 5.7,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.410074151347345,
+    "longitude": -0.2078292114453698,
+    "severity": 6.1,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.410261064417604,
+    "longitude": -0.20952691287595568,
+    "severity": 6.2,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4113450098205,
+    "longitude": -0.20972379064753283,
+    "severity": 5.7,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57993709250281,
+    "longitude": -0.2848718930600147,
+    "severity": 5.0,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57674907020193,
+    "longitude": -0.28409565716651464,
+    "severity": 5.9,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57859558913319,
+    "longitude": -0.28361653259168457,
+    "severity": 5.9,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57980831354639,
+    "longitude": -0.28315852916465367,
+    "severity": 5.2,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.578964758981705,
+    "longitude": -0.28353518748039996,
+    "severity": 5.7,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5771420388628,
+    "longitude": -0.2816539746117481,
+    "severity": 6.0,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57698105507703,
+    "longitude": -0.2829860327206656,
+    "severity": 5.5,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5760921705686,
+    "longitude": -0.28320423152308505,
+    "severity": 5.6,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.577985406682835,
+    "longitude": -0.28150940528437585,
+    "severity": 5.1,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.57740269494774,
+    "longitude": -0.28539254806338177,
+    "severity": 5.3,
+    "date": "2025-04-15",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.449175335523755,
+    "longitude": 0.0432341386667476,
+    "severity": 8.5,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.44843569122549,
+    "longitude": 0.04330575747514501,
+    "severity": 8.7,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45009284166157,
+    "longitude": 0.0466504122558885,
+    "severity": 9.1,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.448855453289525,
+    "longitude": 0.04404910052772831,
+    "severity": 8.6,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.450268778180536,
+    "longitude": 0.04318695221290025,
+    "severity": 9.4,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45002542815159,
+    "longitude": 0.04371454236769385,
+    "severity": 9.1,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.448075615576094,
+    "longitude": 0.04666764444645974,
+    "severity": 9.0,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.449645014022614,
+    "longitude": 0.04360191412265785,
+    "severity": 8.8,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45169527596791,
+    "longitude": 0.04446365451068874,
+    "severity": 9.1,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4510489433215,
+    "longitude": 0.046006291253322514,
+    "severity": 9.0,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.50143400549343,
+    "longitude": -0.21891142493522608,
+    "severity": 4.9,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49800493580285,
+    "longitude": -0.21893126374327743,
+    "severity": 4.5,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50028109385105,
+    "longitude": -0.21703499833538384,
+    "severity": 4.3,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50038789196514,
+    "longitude": -0.21905405317353352,
+    "severity": 4.1,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.498626673558526,
+    "longitude": -0.2173283804048681,
+    "severity": 4.7,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50172199000481,
+    "longitude": -0.21801702075883908,
+    "severity": 4.1,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50097569561739,
+    "longitude": -0.21930833949012796,
+    "severity": 4.0,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49911457639607,
+    "longitude": -0.21849819246016536,
+    "severity": 4.9,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.497957021133686,
+    "longitude": -0.21772060210699307,
+    "severity": 4.3,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49880210413703,
+    "longitude": -0.22015224420968277,
+    "severity": 4.0,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.39935450600094,
+    "longitude": -0.18062114772864205,
+    "severity": 5.7,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.398724050270815,
+    "longitude": -0.18323934994913982,
+    "severity": 6.1,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.397163099348724,
+    "longitude": -0.18100443855124188,
+    "severity": 5.9,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.39880739183215,
+    "longitude": -0.18082524501999084,
+    "severity": 5.5,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.397263358737284,
+    "longitude": -0.1812427081018049,
+    "severity": 5.7,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.39959168211144,
+    "longitude": -0.1820523019329983,
+    "severity": 5.3,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.39650129209613,
+    "longitude": -0.18116273688125567,
+    "severity": 5.8,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.3970285042166,
+    "longitude": -0.18065623511180687,
+    "severity": 5.2,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.399589329069165,
+    "longitude": -0.1817360097450848,
+    "severity": 5.4,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.39805861429251,
+    "longitude": -0.1809629388212581,
+    "severity": 5.6,
+    "date": "2025-04-03",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.45580763057114,
+    "longitude": 0.0745718931464156,
+    "severity": 5.4,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.4554472551469,
+    "longitude": 0.07129152598841973,
+    "severity": 4.8,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.45566004831209,
+    "longitude": 0.0722761048729866,
+    "severity": 5.2,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.457047709712754,
+    "longitude": 0.07226947961259404,
+    "severity": 4.8,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.45435249011475,
+    "longitude": 0.07295734425795097,
+    "severity": 4.5,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.455197206458585,
+    "longitude": 0.07139083466032653,
+    "severity": 4.7,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.457371525611364,
+    "longitude": 0.07178986701713688,
+    "severity": 5.3,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.45653098520828,
+    "longitude": 0.07181450570452828,
+    "severity": 5.0,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.454915411612696,
+    "longitude": 0.07270058992563333,
+    "severity": 4.7,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.456944796237735,
+    "longitude": 0.07329646354408349,
+    "severity": 4.6,
+    "date": "2025-04-04",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.56965659599054,
+    "longitude": -0.21493648913919644,
+    "severity": 6.2,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.5722311270614,
+    "longitude": -0.21637659773897064,
+    "severity": 7.1,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.571240328684254,
+    "longitude": -0.21388427186331987,
+    "severity": 6.8,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.56903633991545,
+    "longitude": -0.21502102708072446,
+    "severity": 7.0,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.56921035738353,
+    "longitude": -0.21391840035267054,
+    "severity": 6.7,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.56999744878566,
+    "longitude": -0.2137043885653595,
+    "severity": 6.5,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.56996784948638,
+    "longitude": -0.21423141292921408,
+    "severity": 6.8,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.57190562599116,
+    "longitude": -0.2136854683179622,
+    "severity": 6.7,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.57034517038664,
+    "longitude": -0.21439302368036808,
+    "severity": 6.5,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.57112389633404,
+    "longitude": -0.21520168002496812,
+    "severity": 6.8,
+    "date": "2025-04-08",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.441376810136404,
+    "longitude": 0.03969533873656601,
+    "severity": 7.7,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.44375355903139,
+    "longitude": 0.04040699590089847,
+    "severity": 7.5,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.442379166789884,
+    "longitude": 0.04230304852627691,
+    "severity": 7.7,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.44276258207224,
+    "longitude": 0.038833290993846414,
+    "severity": 8.2,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.44257341733991,
+    "longitude": 0.0404231057394665,
+    "severity": 7.8,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.44123095837328,
+    "longitude": 0.04019392628241395,
+    "severity": 7.4,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.44443578495216,
+    "longitude": 0.03856671171415609,
+    "severity": 8.3,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.44223756980995,
+    "longitude": 0.04030078898106635,
+    "severity": 8.3,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.444310959349835,
+    "longitude": 0.04032431176125658,
+    "severity": 7.6,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.443200321313206,
+    "longitude": 0.039182188048261846,
+    "severity": 7.7,
+    "date": "2025-04-08",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.377619126339376,
+    "longitude": 0.09076658590873922,
+    "severity": 4.3,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37798713927492,
+    "longitude": 0.09221235842193816,
+    "severity": 4.3,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3771227157455,
+    "longitude": 0.09279383126012583,
+    "severity": 4.2,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37491310937953,
+    "longitude": 0.09104018934361628,
+    "severity": 4.2,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37478058773938,
+    "longitude": 0.09078172369772304,
+    "severity": 3.9,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37460252246651,
+    "longitude": 0.09130221282004643,
+    "severity": 4.6,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37757882150213,
+    "longitude": 0.09380497289147195,
+    "severity": 4.7,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37602089894396,
+    "longitude": 0.09124792312240541,
+    "severity": 4.5,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.3769438548475,
+    "longitude": 0.0925565753951409,
+    "severity": 4.5,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.37808468563276,
+    "longitude": 0.09358389616997466,
+    "severity": 4.2,
+    "date": "2025-03-27",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54430559354154,
+    "longitude": -0.32378403129742006,
+    "severity": 7.3,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.540909969174145,
+    "longitude": -0.3239813542381658,
+    "severity": 8.0,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54431724022689,
+    "longitude": -0.3250642427020481,
+    "severity": 7.6,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54191781126161,
+    "longitude": -0.32216008687842623,
+    "severity": 7.8,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54241198963282,
+    "longitude": -0.32220768448866915,
+    "severity": 7.3,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54256619181215,
+    "longitude": -0.3237138632327226,
+    "severity": 7.4,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54390371291856,
+    "longitude": -0.3240839032001601,
+    "severity": 7.2,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.540933717801025,
+    "longitude": -0.3226995032548536,
+    "severity": 7.2,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54408094239481,
+    "longitude": -0.3239527579559407,
+    "severity": 7.6,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.54288205069957,
+    "longitude": -0.32249868936634424,
+    "severity": 7.2,
+    "date": "2025-04-11",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.33386772123431,
+    "longitude": -0.11407179022074673,
+    "severity": 1.3,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33281186725005,
+    "longitude": -0.11274040684366375,
+    "severity": 1.6,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33301273583945,
+    "longitude": -0.11170448750869343,
+    "severity": 1.5,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33104783605323,
+    "longitude": -0.11132393890228925,
+    "severity": 1.1,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33138068609172,
+    "longitude": -0.11171924880674845,
+    "severity": 1.1,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33059449104913,
+    "longitude": -0.1147019167318311,
+    "severity": 1.2,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33314405216495,
+    "longitude": -0.11383976335545741,
+    "severity": 1.0,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33156457900004,
+    "longitude": -0.11319380063029601,
+    "severity": 1.5,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33240802730554,
+    "longitude": -0.11282450579151157,
+    "severity": 1.8,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.33400532158682,
+    "longitude": -0.11218499230011311,
+    "severity": 1.4,
+    "date": "2025-04-07",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.53790197795856,
+    "longitude": -0.31781051238363667,
+    "severity": 7.7,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5387069737143,
+    "longitude": -0.3147335383948385,
+    "severity": 7.7,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.5366717966711,
+    "longitude": -0.31708532439413983,
+    "severity": 7.2,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53673704233089,
+    "longitude": -0.3155186573562508,
+    "severity": 7.3,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53840684438589,
+    "longitude": -0.3180104279464079,
+    "severity": 7.1,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53751143961337,
+    "longitude": -0.31769531627982656,
+    "severity": 7.3,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53728443971391,
+    "longitude": -0.3154664726406989,
+    "severity": 7.2,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53983894621325,
+    "longitude": -0.3154421628358992,
+    "severity": 7.4,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53650746752161,
+    "longitude": -0.31457723295659484,
+    "severity": 7.1,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.53945004958444,
+    "longitude": -0.31503175349369966,
+    "severity": 7.2,
+    "date": "2025-03-29",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.407946519468595,
+    "longitude": 0.014428109714393558,
+    "severity": 1.0,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.4116972713547,
+    "longitude": 0.015826503992578747,
+    "severity": 1.1,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.409416603741484,
+    "longitude": 0.014641989551477042,
+    "severity": 1.3,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.409925385331334,
+    "longitude": 0.013270192325831598,
+    "severity": 1.7,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.40848991007872,
+    "longitude": 0.013797657096465951,
+    "severity": 1.5,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.411736499974865,
+    "longitude": 0.016150289577168474,
+    "severity": 1.8,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.41077126663852,
+    "longitude": 0.01385560122642104,
+    "severity": 1.7,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.41047351833787,
+    "longitude": 0.013259730671863217,
+    "severity": 1.9,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.409347896866116,
+    "longitude": 0.016144037588543256,
+    "severity": 1.4,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.410597337969946,
+    "longitude": 0.014643550933260115,
+    "severity": 1.1,
+    "date": "2025-03-19",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.359664882210986,
+    "longitude": -0.04419006542872846,
+    "severity": 6.4,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.36171267679764,
+    "longitude": -0.04282016545410914,
+    "severity": 5.9,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.360158901457005,
+    "longitude": -0.041812777183736535,
+    "severity": 6.4,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.35866744659765,
+    "longitude": -0.04114111779999165,
+    "severity": 6.7,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.36174104246204,
+    "longitude": -0.04159813917005665,
+    "severity": 6.3,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.35867313433286,
+    "longitude": -0.04229366599971519,
+    "severity": 6.5,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.36036378856121,
+    "longitude": -0.041811525191170255,
+    "severity": 6.2,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.35943906209499,
+    "longitude": -0.04293620756584544,
+    "severity": 6.2,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.36031433876898,
+    "longitude": -0.04277581606137332,
+    "severity": 5.9,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.35946394801779,
+    "longitude": -0.04079994110438452,
+    "severity": 6.0,
+    "date": "2025-04-12",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4794700865612,
+    "longitude": -0.24793223622341903,
+    "severity": 4.6,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48059630648029,
+    "longitude": -0.2471745919611317,
+    "severity": 5.0,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.47948190145114,
+    "longitude": -0.24970881413942908,
+    "severity": 4.9,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.47963716773552,
+    "longitude": -0.24923238707305123,
+    "severity": 5.1,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48087448388583,
+    "longitude": -0.24981930432002428,
+    "severity": 4.9,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48053071514341,
+    "longitude": -0.24980539074159536,
+    "severity": 4.8,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48160352578458,
+    "longitude": -0.25033590209355794,
+    "severity": 5.1,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48022011894874,
+    "longitude": -0.24759448455678257,
+    "severity": 4.6,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.479603772442864,
+    "longitude": -0.2502737533329784,
+    "severity": 4.8,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48194423828676,
+    "longitude": -0.24826186600247613,
+    "severity": 4.7,
+    "date": "2025-04-03",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.36622957255349,
+    "longitude": -0.1531439046405181,
+    "severity": 2.1,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36829281031747,
+    "longitude": -0.15330726528588393,
+    "severity": 1.7,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36814183406321,
+    "longitude": -0.15350039495067785,
+    "severity": 2.3,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36621944007098,
+    "longitude": -0.15233269749044104,
+    "severity": 2.2,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.368505045707806,
+    "longitude": -0.1548836779467606,
+    "severity": 1.6,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36793740966093,
+    "longitude": -0.15392201031938585,
+    "severity": 2.0,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36726788055241,
+    "longitude": -0.15580468211744405,
+    "severity": 1.6,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.369038724826616,
+    "longitude": -0.15436273333119446,
+    "severity": 2.1,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36817404990684,
+    "longitude": -0.1547915973984092,
+    "severity": 1.4,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36613090355843,
+    "longitude": -0.1533114630761208,
+    "severity": 2.0,
+    "date": "2025-03-18",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.394553453753254,
+    "longitude": 0.08217675534533014,
+    "severity": 9.7,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.394670500595026,
+    "longitude": 0.08224348637459289,
+    "severity": 8.9,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.39465830497389,
+    "longitude": 0.08409096822725819,
+    "severity": 9.3,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.39571579322664,
+    "longitude": 0.08412135386607282,
+    "severity": 8.8,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.395428978309255,
+    "longitude": 0.0836138013041725,
+    "severity": 9.6,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.39408005464727,
+    "longitude": 0.08577777175473784,
+    "severity": 8.8,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.394014379082854,
+    "longitude": 0.08554238340321327,
+    "severity": 9.4,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.395472989503766,
+    "longitude": 0.0831851815210728,
+    "severity": 8.8,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.39369129302961,
+    "longitude": 0.08389720942008541,
+    "severity": 9.0,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.396324207009584,
+    "longitude": 0.08383893392453765,
+    "severity": 9.6,
+    "date": "2025-04-12",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.50923271071889,
+    "longitude": -0.27762873412570416,
+    "severity": 5.3,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.512141239858394,
+    "longitude": -0.2793845110399663,
+    "severity": 4.6,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.510841453188306,
+    "longitude": -0.2772090537989147,
+    "severity": 4.7,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.51234255928954,
+    "longitude": -0.27688946672720477,
+    "severity": 4.8,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.51019825669329,
+    "longitude": -0.2776304103363931,
+    "severity": 5.3,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.51265735534931,
+    "longitude": -0.27815880952949323,
+    "severity": 4.6,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.510605862742246,
+    "longitude": -0.27706054796877594,
+    "severity": 5.3,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.50981762622658,
+    "longitude": -0.27777284213357994,
+    "severity": 5.5,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.51207802047924,
+    "longitude": -0.2789663260916151,
+    "severity": 4.6,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.510181407921195,
+    "longitude": -0.2788466110765412,
+    "severity": 5.4,
+    "date": "2025-04-10",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.457322751574445,
+    "longitude": -0.023760378344913707,
+    "severity": 3.2,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.456916103373416,
+    "longitude": -0.02637906764236944,
+    "severity": 3.0,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.459027521077914,
+    "longitude": -0.02488299375569086,
+    "severity": 2.9,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.45927549127992,
+    "longitude": -0.0257427402877884,
+    "severity": 2.9,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.45819696733435,
+    "longitude": -0.025227251721617175,
+    "severity": 3.4,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.458609223868926,
+    "longitude": -0.024047295188602345,
+    "severity": 3.0,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.45999694631955,
+    "longitude": -0.02371605689242938,
+    "severity": 3.1,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.45804978796616,
+    "longitude": -0.023859569802104907,
+    "severity": 2.6,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.46063766514688,
+    "longitude": -0.023190857843494055,
+    "severity": 2.8,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.457569155576266,
+    "longitude": -0.023884629752665188,
+    "severity": 3.1,
+    "date": "2025-03-30",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.352453091094446,
+    "longitude": 0.0951158260224144,
+    "severity": 9.0,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.34905308059754,
+    "longitude": 0.09632191365007564,
+    "severity": 8.7,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.34950204652243,
+    "longitude": 0.09654075961719774,
+    "severity": 8.7,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.3495145677005,
+    "longitude": 0.09711929750830268,
+    "severity": 8.6,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.35129857433008,
+    "longitude": 0.09656085697481388,
+    "severity": 8.3,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.35100246369932,
+    "longitude": 0.09740624421572922,
+    "severity": 8.3,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.35102866183492,
+    "longitude": 0.0968678627509384,
+    "severity": 8.6,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.35133863122807,
+    "longitude": 0.09718468122560893,
+    "severity": 8.4,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.351887950957305,
+    "longitude": 0.0969275455531024,
+    "severity": 8.7,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.35237160514199,
+    "longitude": 0.0965321982485549,
+    "severity": 8.6,
+    "date": "2025-04-02",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.48021375868349,
+    "longitude": -0.1713563432616298,
+    "severity": 2.2,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.48199460985309,
+    "longitude": -0.16865255005046356,
+    "severity": 2.1,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.47984329039948,
+    "longitude": -0.17086316951741695,
+    "severity": 2.1,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.478816608260736,
+    "longitude": -0.17104023099373858,
+    "severity": 3.0,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.48218830169315,
+    "longitude": -0.16935638966093378,
+    "severity": 2.6,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.481689357393414,
+    "longitude": -0.17141914692341848,
+    "severity": 2.7,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.47898107972353,
+    "longitude": -0.17070808072924318,
+    "severity": 2.1,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.48051011477094,
+    "longitude": -0.17048818157521706,
+    "severity": 2.3,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.47961282879589,
+    "longitude": -0.17168180226159685,
+    "severity": 2.1,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.48031586763082,
+    "longitude": -0.17002771864001173,
+    "severity": 2.5,
+    "date": "2025-03-26",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36637525748132,
+    "longitude": 0.06380369809255172,
+    "severity": 1.8,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.3670667831002,
+    "longitude": 0.06327635562567645,
+    "severity": 1.3,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36637136446326,
+    "longitude": 0.06544367691617273,
+    "severity": 1.2,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36350859678172,
+    "longitude": 0.06329699223332369,
+    "severity": 1.9,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.363727268777225,
+    "longitude": 0.06455269960333418,
+    "severity": 1.1,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36423428057923,
+    "longitude": 0.06446959203090759,
+    "severity": 1.6,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36318120360614,
+    "longitude": 0.06414579886063991,
+    "severity": 1.4,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36568753649368,
+    "longitude": 0.06324971890751517,
+    "severity": 1.1,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.36652352432219,
+    "longitude": 0.06285336527441082,
+    "severity": 1.7,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.364108626108546,
+    "longitude": 0.06525031995396678,
+    "severity": 1.2,
+    "date": "2025-04-05",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.41046675027804,
+    "longitude": -0.13032660340943583,
+    "severity": 9.5,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.412006846978905,
+    "longitude": -0.12796875603471197,
+    "severity": 9.9,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.411441115572,
+    "longitude": -0.1287688375613394,
+    "severity": 9.7,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.41220056867789,
+    "longitude": -0.12939838181098584,
+    "severity": 9.3,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.41120528066563,
+    "longitude": -0.12955818512408018,
+    "severity": 9.2,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.41022985861907,
+    "longitude": -0.13076816078276068,
+    "severity": 9.0,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.41247990198456,
+    "longitude": -0.13012988339282563,
+    "severity": 9.4,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.410980385952385,
+    "longitude": -0.12788393993494832,
+    "severity": 9.7,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.41202432415272,
+    "longitude": -0.1303393458134394,
+    "severity": 9.5,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.412400963395505,
+    "longitude": -0.13105248909533068,
+    "severity": 9.4,
+    "date": "2025-04-03",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.56158421020815,
+    "longitude": -0.17461660580223673,
+    "severity": 4.5,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.562478408231456,
+    "longitude": -0.17455778373963696,
+    "severity": 5.1,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.561491653597436,
+    "longitude": -0.17624045382247588,
+    "severity": 5.0,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.55928693940106,
+    "longitude": -0.17327197622992116,
+    "severity": 4.7,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.559847509885486,
+    "longitude": -0.17472118305887532,
+    "severity": 4.4,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.56137892146635,
+    "longitude": -0.17271405892733876,
+    "severity": 5.1,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.56194942183758,
+    "longitude": -0.17301861975494248,
+    "severity": 4.9,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.56136800535021,
+    "longitude": -0.17304702316299173,
+    "severity": 5.0,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.56266427237956,
+    "longitude": -0.1747854899240957,
+    "severity": 5.1,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.55937722120056,
+    "longitude": -0.17602279321964442,
+    "severity": 5.1,
+    "date": "2025-03-21",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.52325075026766,
+    "longitude": -0.18139684517205495,
+    "severity": 7.4,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52281614848379,
+    "longitude": -0.18011396083163708,
+    "severity": 6.7,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52377719663041,
+    "longitude": -0.18271921853396506,
+    "severity": 6.7,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52399493204661,
+    "longitude": -0.18049707095562476,
+    "severity": 6.8,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52283489140363,
+    "longitude": -0.1825831615536552,
+    "severity": 7.2,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52429924960824,
+    "longitude": -0.18339054385985734,
+    "severity": 7.4,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52230514671324,
+    "longitude": -0.18225704318785824,
+    "severity": 6.7,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52202343701132,
+    "longitude": -0.18163154859556913,
+    "severity": 7.0,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52452828591355,
+    "longitude": -0.18064673514119098,
+    "severity": 7.0,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.520924614534636,
+    "longitude": -0.18075925552864078,
+    "severity": 6.8,
+    "date": "2025-03-21",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.376851677076566,
+    "longitude": 0.02963518351925084,
+    "severity": 8.7,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.3751495369326,
+    "longitude": 0.029581143772777572,
+    "severity": 9.1,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.37361534916171,
+    "longitude": 0.03020394347602846,
+    "severity": 8.6,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.37343236513611,
+    "longitude": 0.030565314020097996,
+    "severity": 9.0,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.37375582962906,
+    "longitude": 0.03115948800363453,
+    "severity": 9.1,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.375411651579164,
+    "longitude": 0.029496896614986074,
+    "severity": 8.7,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.373303807922085,
+    "longitude": 0.03257619267066114,
+    "severity": 8.7,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.37491698082527,
+    "longitude": 0.030079445813410766,
+    "severity": 8.3,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.37689787014304,
+    "longitude": 0.03196991460039379,
+    "severity": 8.7,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.37338422666091,
+    "longitude": 0.029529419015611496,
+    "severity": 9.1,
+    "date": "2025-03-19",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.361779917448295,
+    "longitude": -0.19925388438295488,
+    "severity": 3.9,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.361457292553176,
+    "longitude": -0.1972161725123262,
+    "severity": 4.3,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.359073749626226,
+    "longitude": -0.1966000196162322,
+    "severity": 4.8,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.36234234726859,
+    "longitude": -0.1987144080666107,
+    "severity": 4.8,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.36181155898222,
+    "longitude": -0.19597995292812143,
+    "severity": 4.9,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35893703140082,
+    "longitude": -0.19788882644498643,
+    "severity": 4.3,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35920543630036,
+    "longitude": -0.19605097686897446,
+    "severity": 4.7,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.36273933770692,
+    "longitude": -0.19833783411335418,
+    "severity": 4.8,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.36113222441218,
+    "longitude": -0.19626829139643714,
+    "severity": 3.9,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35996245923117,
+    "longitude": -0.19606542569012297,
+    "severity": 4.5,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.42171193314557,
+    "longitude": 0.06591125005129217,
+    "severity": 7.4,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42119786284628,
+    "longitude": 0.06574658647903824,
+    "severity": 7.1,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42322444814048,
+    "longitude": 0.06445114040874307,
+    "severity": 7.4,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42295292507153,
+    "longitude": 0.06609624741098924,
+    "severity": 7.4,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42161277681398,
+    "longitude": 0.06554092335368714,
+    "severity": 7.2,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42206295742762,
+    "longitude": 0.06474334849470462,
+    "severity": 7.4,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42310273985586,
+    "longitude": 0.06465509047136922,
+    "severity": 7.5,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42257603317015,
+    "longitude": 0.0645833067974651,
+    "severity": 7.1,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.422703754469545,
+    "longitude": 0.06432206340280353,
+    "severity": 7.4,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.42375992076902,
+    "longitude": 0.06432780525842341,
+    "severity": 6.8,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.32954543294077,
+    "longitude": -0.05225744836666282,
+    "severity": 2.0,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.330948403851814,
+    "longitude": -0.05049160834283235,
+    "severity": 1.7,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.331683100064076,
+    "longitude": -0.04988427298703773,
+    "severity": 2.3,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.331865942030134,
+    "longitude": -0.05040623588944995,
+    "severity": 1.8,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.33276008171765,
+    "longitude": -0.05098630458468614,
+    "severity": 1.4,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.332662324201515,
+    "longitude": -0.05310901494430416,
+    "severity": 2.1,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.331172870769294,
+    "longitude": -0.052498016831527744,
+    "severity": 1.6,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.33156577303546,
+    "longitude": -0.05150930264138312,
+    "severity": 1.9,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.33052060194903,
+    "longitude": -0.05058758352778771,
+    "severity": 1.3,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.329338902470035,
+    "longitude": -0.053703720715643506,
+    "severity": 1.7,
+    "date": "2025-03-28",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.485389930127546,
+    "longitude": -0.2836658092590902,
+    "severity": 7.9,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.4835667087074,
+    "longitude": -0.2828672529398847,
+    "severity": 7.1,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48277417455779,
+    "longitude": -0.28341380543772404,
+    "severity": 7.5,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48221481662917,
+    "longitude": -0.2867628990272874,
+    "severity": 8.0,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48335318500084,
+    "longitude": -0.283781661145917,
+    "severity": 7.9,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48341831852398,
+    "longitude": -0.2833739476539224,
+    "severity": 7.3,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.482565479004904,
+    "longitude": -0.28674888042841523,
+    "severity": 7.2,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.482628221743106,
+    "longitude": -0.28604200703030186,
+    "severity": 7.7,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48507874332647,
+    "longitude": -0.2839838098821998,
+    "severity": 7.3,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.48240637023675,
+    "longitude": -0.2858233010743109,
+    "severity": 7.5,
+    "date": "2025-04-06",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.513673052031756,
+    "longitude": -0.16025367307716168,
+    "severity": 9.5,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.513718342997066,
+    "longitude": -0.159093705864891,
+    "severity": 9.7,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.515258621806176,
+    "longitude": -0.16051561169118772,
+    "severity": 9.3,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51560377680597,
+    "longitude": -0.15742318311165193,
+    "severity": 10.0,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51496009107887,
+    "longitude": -0.15798162072130875,
+    "severity": 10.0,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51595904578124,
+    "longitude": -0.158922520674533,
+    "severity": 9.7,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51495483349947,
+    "longitude": -0.15950943855105496,
+    "severity": 9.9,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51565106666744,
+    "longitude": -0.1591181219685016,
+    "severity": 9.7,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51637431708445,
+    "longitude": -0.16013283315926455,
+    "severity": 9.7,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.51543288323857,
+    "longitude": -0.15746181271690976,
+    "severity": 9.4,
+    "date": "2025-04-09",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.455496203406355,
+    "longitude": 0.04577101877604564,
+    "severity": 5.9,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.457445034587245,
+    "longitude": 0.04689296138462696,
+    "severity": 6.4,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45710528830071,
+    "longitude": 0.04401878165225892,
+    "severity": 6.5,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4566663934498,
+    "longitude": 0.043286308398833476,
+    "severity": 6.2,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45447427798359,
+    "longitude": 0.04641310572063001,
+    "severity": 5.9,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.455598906516656,
+    "longitude": 0.045666779641080985,
+    "severity": 6.5,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45658829741684,
+    "longitude": 0.04583623143354867,
+    "severity": 6.4,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.4541322343083,
+    "longitude": 0.04484193355431265,
+    "severity": 6.3,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45494073798276,
+    "longitude": 0.042962584942283936,
+    "severity": 6.6,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.45504840566538,
+    "longitude": 0.04588716946399859,
+    "severity": 5.9,
+    "date": "2025-04-15",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.357431956229284,
+    "longitude": -0.08181286465416593,
+    "severity": 6.6,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35457400561062,
+    "longitude": -0.081472241643951,
+    "severity": 6.6,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35733572994512,
+    "longitude": -0.08147755503612363,
+    "severity": 6.6,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35716602220627,
+    "longitude": -0.08182415697944025,
+    "severity": 6.5,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35386481831444,
+    "longitude": -0.07883166066091993,
+    "severity": 7.1,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.354346262161876,
+    "longitude": -0.08008453586393258,
+    "severity": 6.9,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35752100620513,
+    "longitude": -0.08141771719570552,
+    "severity": 6.9,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.357021292879814,
+    "longitude": -0.08086733508443016,
+    "severity": 6.8,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35642902420086,
+    "longitude": -0.07889394370913314,
+    "severity": 6.3,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.35451744667605,
+    "longitude": -0.08015223575852776,
+    "severity": 6.6,
+    "date": "2025-04-10",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.51254157025021,
+    "longitude": -0.3214196614126173,
+    "severity": 9.2,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.51242710929375,
+    "longitude": -0.3186347303881434,
+    "severity": 9.4,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.509482839884804,
+    "longitude": -0.3213191986053039,
+    "severity": 8.7,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.51203862747235,
+    "longitude": -0.32052998625383944,
+    "severity": 9.3,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.512325213804004,
+    "longitude": -0.32007681537151034,
+    "severity": 9.3,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.51019776012082,
+    "longitude": -0.31884652478135045,
+    "severity": 9.3,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.51142323562935,
+    "longitude": -0.32006958398548524,
+    "severity": 8.6,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.51035500701522,
+    "longitude": -0.3186074161748411,
+    "severity": 8.7,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.511875070793565,
+    "longitude": -0.3202864868422364,
+    "severity": 8.8,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.51094882985329,
+    "longitude": -0.31971314841157383,
+    "severity": 9.2,
+    "date": "2025-04-01",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.48886051843148,
+    "longitude": -0.16689066904541577,
+    "severity": 4.5,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.490259815416074,
+    "longitude": -0.16501633505613586,
+    "severity": 4.4,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.48843366211763,
+    "longitude": -0.1687776664638483,
+    "severity": 5.2,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49011320228505,
+    "longitude": -0.1667853363954692,
+    "severity": 4.4,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.48748758807895,
+    "longitude": -0.16550402851955978,
+    "severity": 4.9,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.48984518308444,
+    "longitude": -0.16765390268451638,
+    "severity": 4.6,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49074218396955,
+    "longitude": -0.16834183548285017,
+    "severity": 5.0,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.48738747068363,
+    "longitude": -0.16836796346916247,
+    "severity": 4.2,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.487719009664865,
+    "longitude": -0.1688685557815878,
+    "severity": 4.6,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.48683063005085,
+    "longitude": -0.16774515808719426,
+    "severity": 4.9,
+    "date": "2025-04-16",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.34438113926415,
+    "longitude": 0.07654141594956823,
+    "severity": 8.4,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.34342900464614,
+    "longitude": 0.07670186264182237,
+    "severity": 8.4,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.34151816957857,
+    "longitude": 0.0790000834123071,
+    "severity": 8.7,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.34332813719119,
+    "longitude": 0.07738996518622542,
+    "severity": 8.7,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.340651823478574,
+    "longitude": 0.07812676476001368,
+    "severity": 8.2,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.343244301806806,
+    "longitude": 0.07845105214720935,
+    "severity": 8.5,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.34444528388318,
+    "longitude": 0.07922852292881888,
+    "severity": 9.0,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.343930079927624,
+    "longitude": 0.0787641586185441,
+    "severity": 9.0,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.34105893093775,
+    "longitude": 0.07724724566199935,
+    "severity": 9.0,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.343662515809655,
+    "longitude": 0.0766746704661951,
+    "severity": 8.2,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.49505104906438,
+    "longitude": -0.349666979634599,
+    "severity": 2.6,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.493180157349805,
+    "longitude": -0.3498633929533968,
+    "severity": 3.0,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49274275522727,
+    "longitude": -0.347975548198398,
+    "severity": 2.7,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.494754331557296,
+    "longitude": -0.34907196251206873,
+    "severity": 3.4,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49428606480911,
+    "longitude": -0.3475993715573336,
+    "severity": 3.3,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49231218357303,
+    "longitude": -0.347165241902262,
+    "severity": 2.5,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49615796800034,
+    "longitude": -0.35080588547548,
+    "severity": 2.9,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.494458575362046,
+    "longitude": -0.34796459929284673,
+    "severity": 2.5,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49524721704479,
+    "longitude": -0.3504165276862019,
+    "severity": 3.1,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.493215305490445,
+    "longitude": -0.3503846578571663,
+    "severity": 2.6,
+    "date": "2025-04-06",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.49827305915446,
+    "longitude": -0.2442943036946951,
+    "severity": 6.8,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.49952235072441,
+    "longitude": -0.24375097678454952,
+    "severity": 6.6,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.50031878633921,
+    "longitude": -0.24215215624469533,
+    "severity": 7.4,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.49776399117494,
+    "longitude": -0.24540767465211907,
+    "severity": 7.4,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.49671998763604,
+    "longitude": -0.2419895948479737,
+    "severity": 6.9,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.499385002603,
+    "longitude": -0.2429767043682204,
+    "severity": 7.1,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.49744789000916,
+    "longitude": -0.24223971624529364,
+    "severity": 6.7,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.500159591812995,
+    "longitude": -0.24245216053004143,
+    "severity": 6.9,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.499235916519474,
+    "longitude": -0.24463764287137893,
+    "severity": 7.2,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.49976451996157,
+    "longitude": -0.24348585215409818,
+    "severity": 7.1,
+    "date": "2025-03-27",
+    "type": "Assault"
+  },
+  {
+    "latitude": 51.375535903335184,
+    "longitude": 0.013365969216654002,
+    "severity": 3.1,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.376330545803874,
+    "longitude": 0.012876563590511179,
+    "severity": 3.1,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.376370036683824,
+    "longitude": 0.013730809164181245,
+    "severity": 3.0,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.376399733153086,
+    "longitude": 0.013905267797498119,
+    "severity": 3.0,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37523797730864,
+    "longitude": 0.013715240565857325,
+    "severity": 2.7,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37733790626919,
+    "longitude": 0.013210009290773633,
+    "severity": 3.5,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.374244026328476,
+    "longitude": 0.013873495551154347,
+    "severity": 2.9,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37599566993317,
+    "longitude": 0.014564303009733028,
+    "severity": 3.1,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37705323279018,
+    "longitude": 0.015005198555389966,
+    "severity": 2.8,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.37723431357007,
+    "longitude": 0.012551678853833615,
+    "severity": 3.4,
+    "date": "2025-03-23",
+    "type": "Drugs"
+  },
+  {
+    "latitude": 51.53183868096684,
+    "longitude": -0.20046672209717248,
+    "severity": 8.4,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.53053460290947,
+    "longitude": -0.19984155995897232,
+    "severity": 8.6,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.532875526488795,
+    "longitude": -0.20038363658724587,
+    "severity": 8.4,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.53257969351099,
+    "longitude": -0.1985258914627478,
+    "severity": 8.7,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.531418228285695,
+    "longitude": -0.1997301553560878,
+    "severity": 8.0,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.5310721819509,
+    "longitude": -0.19882892313095643,
+    "severity": 7.9,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.53297985435783,
+    "longitude": -0.20054478210574211,
+    "severity": 8.7,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.53235868428355,
+    "longitude": -0.20162348728600776,
+    "severity": 8.0,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.53275566689608,
+    "longitude": -0.19886470379405957,
+    "severity": 7.9,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.52925780414758,
+    "longitude": -0.19781017760463432,
+    "severity": 7.9,
+    "date": "2025-03-26",
+    "type": "Robbery"
+  },
+  {
+    "latitude": 51.298020584790805,
+    "longitude": -0.1352237518408635,
+    "severity": 3.2,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.295274253330575,
+    "longitude": -0.13209730846817797,
+    "severity": 3.1,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29540528932094,
+    "longitude": -0.1323505362442664,
+    "severity": 3.1,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29819840617131,
+    "longitude": -0.13158691168444642,
+    "severity": 3.7,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29534826154345,
+    "longitude": -0.13181059679275003,
+    "severity": 3.1,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29521340493708,
+    "longitude": -0.1341165132247197,
+    "severity": 3.4,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29617009692837,
+    "longitude": -0.13294857481614733,
+    "severity": 3.3,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29716638806827,
+    "longitude": -0.13278252238893345,
+    "severity": 3.7,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.29516502080007,
+    "longitude": -0.13320949788237935,
+    "severity": 3.9,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.295003630489234,
+    "longitude": -0.13279221345303732,
+    "severity": 3.4,
+    "date": "2025-03-22",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5019546630343,
+    "longitude": -0.33440841098404195,
+    "severity": 1.4,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50157356983076,
+    "longitude": -0.33703631904185966,
+    "severity": 1.8,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5021280613768,
+    "longitude": -0.33636021714364644,
+    "severity": 1.1,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50368494964581,
+    "longitude": -0.33641291954437147,
+    "severity": 1.3,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.5039022668193,
+    "longitude": -0.3353796485066989,
+    "severity": 1.5,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.500728636597756,
+    "longitude": -0.33693180060278377,
+    "severity": 1.5,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50024565317022,
+    "longitude": -0.3347206833161987,
+    "severity": 1.2,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50193935131983,
+    "longitude": -0.33730036780140366,
+    "severity": 1.3,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50208768571786,
+    "longitude": -0.3378999464009275,
+    "severity": 1.1,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.503937687838125,
+    "longitude": -0.33423580217234705,
+    "severity": 1.8,
+    "date": "2025-04-12",
+    "type": "Shoplifting"
+  },
+  {
+    "latitude": 51.50306883552356,
+    "longitude": -0.334652270024111,
+    "severity": 4.3,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.50310700356966,
+    "longitude": -0.3326462724982396,
+    "severity": 4.3,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.50201814329894,
+    "longitude": -0.33524315599873644,
+    "severity": 4.3,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.49989551702924,
+    "longitude": -0.33539514084408173,
+    "severity": 4.0,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5033449914013,
+    "longitude": -0.3323098161150066,
+    "severity": 4.7,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.50010910590574,
+    "longitude": -0.33350759566747457,
+    "severity": 4.4,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.501403383665995,
+    "longitude": -0.3339033987712013,
+    "severity": 4.1,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.501221388860685,
+    "longitude": -0.3334502444931373,
+    "severity": 3.9,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.5026134332226,
+    "longitude": -0.33508591170800867,
+    "severity": 4.3,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.50290168838732,
+    "longitude": -0.3354218149915933,
+    "severity": 4.1,
+    "date": "2025-03-29",
+    "type": "Burglary"
+  },
+  {
+    "latitude": 51.40487221339492,
+    "longitude": -0.10983393848946714,
+    "severity": 7.0,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.40677106871026,
+    "longitude": -0.11063166379840324,
+    "severity": 7.1,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.404592013983724,
+    "longitude": -0.10997602902389163,
+    "severity": 7.1,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.40679978225965,
+    "longitude": -0.11206582038394707,
+    "severity": 7.2,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.40757450463361,
+    "longitude": -0.11126410182869892,
+    "severity": 6.9,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.40579368888085,
+    "longitude": -0.10991173239505733,
+    "severity": 6.6,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.404289193432255,
+    "longitude": -0.1087079385633309,
+    "severity": 6.5,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.40628138872409,
+    "longitude": -0.10848128435780133,
+    "severity": 6.3,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.40633723065051,
+    "longitude": -0.11044680697633767,
+    "severity": 6.7,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  },
+  {
+    "latitude": 51.406868128784126,
+    "longitude": -0.11141445315962836,
+    "severity": 6.4,
+    "date": "2025-04-13",
+    "type": "Vehicle Theft"
+  }
+]
