@@ -16,7 +16,7 @@ import java.io.IOException
 
 private const val TAG = "CrimeTileRepository"
 
-private data class TileIncidentDto(
+data class TileIncidentDto(
     @SerializedName("incident_key") val incidentKey: String,
     val latitude: Double,
     val longitude: Double,
@@ -27,7 +27,7 @@ private data class TileIncidentDto(
     val borough: String?
 )
 
-private data class TileDto(
+data class TileDto(
     @SerializedName("tile_id") val tileId: String,
     val revision: Int,
     val heatmap: List<HeatmapPoint>,
@@ -35,7 +35,7 @@ private data class TileDto(
     val incidents: List<TileIncidentDto>
 )
 
-private data class TileResponseDto(
+data class TileResponseDto(
     val tiles: List<TileDto>,
     @SerializedName("removed_tiles") val removedTiles: List<String>,
     @SerializedName("generated_at") val generatedAt: String,
