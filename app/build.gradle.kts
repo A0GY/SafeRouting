@@ -18,6 +18,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val aggregatorUrl =
+            (project.findProperty("crimeAggregatorBaseUrl") as? String)?.ifBlank { null }
+                ?: "http://10.0.2.2:8000/"
+        buildConfigField("String", "CRIME_AGGREGATOR_BASE_URL", "\"$aggregatorUrl\"")
     }
 
     buildTypes {

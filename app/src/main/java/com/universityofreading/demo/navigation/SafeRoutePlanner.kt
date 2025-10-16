@@ -10,6 +10,7 @@ import kotlin.math.exp
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.pow
+import java.util.concurrent.ConcurrentHashMap
 
 object SafeRoutePlanner {
     private const val TAG = "SafeRoutePlanner"
@@ -33,11 +34,76 @@ object SafeRoutePlanner {
     
     // Store a reference to the crime spatial index
     private var crimeSpatialIndex: CrimeSpatialIndex? = null
+
+    private data class RouteRiskSnapshot(
+        val revision: Long,
+        val risk: Double,
+        val highRiskSegments: Int,
+        val tiles: Set<String>
+    )
+
+
+    private val routeRiskCache = ConcurrentHashMap<String, RouteRiskSnapshot>()
+    private val tileToRoutes = ConcurrentHashMap<String, MutableSet<String>>()
     
     // Set the crime spatial index
     fun setCrimeSpatialIndex(index: CrimeSpatialIndex) {
         crimeSpatialIndex = index
         DebugLogger.logDebug(TAG, "Set crime spatial index with ${index.getCrimeCount()} crime points")
+        clearRiskCache()
+    }
+
+    fun invalidateCacheForTiles(tileIds: Set<String>) {
+        if (tileIds.isEmpty()) return
+        tileIds.forEach { tileId ->
+            val routes = tileToRoutes.remove(tileId) ?: return@forEach
+            routes.forEach { routeKey ->
+                routeRiskCache.remove(routeKey)
+            }
+        }
+    }
+
+    private fun cacheRouteSnapshot(routeKey: String, snapshot: RouteRiskSnapshot) {
+        val previous = routeRiskCache.put(routeKey, snapshot)
+        previous?.tiles?.forEach { tileId ->
+            tileToRoutes[tileId]?.let { set ->
+                set.remove(routeKey)
+                if (set.isEmpty()) {
+                    tileToRoutes.remove(tileId)
+                }
+            }
+        }
+        snapshot.tiles.forEach { tileId ->
+            val set = tileToRoutes.getOrPut(tileId) { ConcurrentHashMap.newKeySet() }
+            set.add(routeKey)
+        }
+    }
+
+    private fun clearRiskCache() {
+        routeRiskCache.clear()
+        tileToRoutes.clear()
+    }
+
+    private fun routeKeyFor(route: com.google.maps.model.DirectionsRoute): String {
+        val encoded = route.overviewPolyline?.encodedPath
+        return encoded ?: route.hashCode().toString()
+    }
+
+    private fun resolveRouteRisk(
+        route: com.google.maps.model.DirectionsRoute,
+        index: CrimeSpatialIndex,
+        timeMultiplier: Double
+    ): RouteRiskSnapshot {
+        val routeKey = routeKeyFor(route)
+        val currentRevision = index.currentRevision()
+        val cached = routeRiskCache[routeKey]
+        if (cached != null && cached.revision == currentRevision) {
+            return cached
+        }
+        val computation = calculateRouteRiskAndSegments(route, index, timeMultiplier)
+        val snapshot = RouteRiskSnapshot(currentRevision, computation.riskScore, computation.highRiskSegments, computation.tileIds)
+        cacheRouteSnapshot(routeKey, snapshot)
+        return snapshot
     }
     
     // Set a simulated hour for risk calculation
@@ -125,14 +191,14 @@ object SafeRoutePlanner {
                     // Calculate basic risk for UI display purposes, but optimize for speed
                     val routeCandidates = routes.map { route ->
                         val distanceM = route.legs[0].distance.inMeters.toDouble()
-                        
+
                         // Use the actual duration from API for walking routes
                         val durationS = route.legs[0].duration.inSeconds.toDouble()
-                        
+
                         // Still calculate risk (for visualization), but don't use it for ranking
-                        val (risk, highRiskSegments) = calculateRouteRiskAndSegments(route, index, timeMultiplier)
-                        
-                        RouteCandidate(route, risk, distanceM, durationS, highRiskSegments)
+                        val snapshot = resolveRouteRisk(route, index, timeMultiplier)
+
+                        RouteCandidate(route, snapshot.risk, distanceM, durationS, snapshot.highRiskSegments)
                     }
                     
                     // Find fastest route by pure duration, ensuring we only consider walking-appropriate routes
@@ -172,18 +238,18 @@ object SafeRoutePlanner {
                 DebugLogger.logDebug(TAG, "Calculating risk scores for all routes")
                 val routeCandidates = routes.mapIndexed { i, route ->
                     try {
-                        val (risk, highRiskSegments) = calculateRouteRiskAndSegments(route, index, timeMultiplier)
+                        val snapshot = resolveRouteRisk(route, index, timeMultiplier)
                         val distanceM = route.legs[0].distance.inMeters.toDouble()
                         val durationS = route.legs[0].duration.inSeconds.toDouble()
-                        
-                        DebugLogger.logDebug(TAG, "Route $i: distance=${distanceM}m, duration=${durationS}s, risk=$risk, highRiskSegments=$highRiskSegments")
-                        
+
+                        DebugLogger.logDebug(TAG, "Route $i: distance=${distanceM}m, duration=${durationS}s, risk=${snapshot.risk}, highRiskSegments=${snapshot.highRiskSegments}")
+
                         RouteCandidate(
-                            route, 
-                            risk, 
+                            route,
+                            snapshot.risk,
                             distanceM,
                             durationS,
-                            highRiskSegments
+                            snapshot.highRiskSegments
                         )
                     } catch (e: Exception) {
                         // Handle errors for individual routes
@@ -275,8 +341,7 @@ object SafeRoutePlanner {
         index: CrimeSpatialIndex,
         timeMultiplier: Double
     ): Double {
-        val (risk, _) = calculateRouteRiskAndSegments(route, index, timeMultiplier)
-        return risk
+        return resolveRouteRisk(route, index, timeMultiplier).risk
     }
     
     /**
@@ -288,7 +353,7 @@ object SafeRoutePlanner {
         route: com.google.maps.model.DirectionsRoute,
         index: CrimeSpatialIndex,
         timeMultiplier: Double
-    ): Pair<Double, Int> {
+    ): RouteRiskComputation {
         val pts = PolylineUtils.decode(route.overviewPolyline.encodedPath)
         
         // Calculate route length in meters
@@ -353,7 +418,8 @@ object SafeRoutePlanner {
             0.0
         }
         
-        return Pair(finalRisk, highRiskSegmentCount)
+        val tileIds = index.tilesForRouteSamples(samples)
+        return RouteRiskComputation(finalRisk, highRiskSegmentCount, tileIds)
     }
     
     // Calculate position weight using a bell curve - middle of route gets highest weight
@@ -465,15 +531,15 @@ object SafeRoutePlanner {
                 val durationS = route.legs.sumOf { it.duration.inSeconds.toDouble() }
                 
                 // Calculate route risk and high-risk segments
-                val (riskScore, highRiskSegments) = calculateRouteRiskAndSegments(route, spatialIndex, timeMultiplier)
-                
+                val snapshot = resolveRouteRisk(route, spatialIndex, timeMultiplier)
+
                 // Create route candidate with all metrics
                 RouteCandidate(
                     route = route,
-                    riskScore = riskScore,
+                    riskScore = snapshot.risk,
                     distanceM = distanceM,
                     durationS = durationS,
-                    highRiskSegments = highRiskSegments
+                    highRiskSegments = snapshot.highRiskSegments
                 )
             }
 
@@ -535,3 +601,8 @@ private object StraightLineRouteCreator {
         return com.google.maps.android.PolyUtil.encode(points)
         }
 }
+    private data class RouteRiskComputation(
+        val riskScore: Double,
+        val highRiskSegments: Int,
+        val tileIds: Set<String>
+    )
