@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saferouting-crime-aggregator"
+version = "0.1.0"
+description = "Server-side crime aggregation and moderation API for SafeRouting"
+authors = [{name = "SafeRouting Team"}]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.24",
+    "sqlalchemy>=2.0",
+    "psycopg2-binary>=2.9",
+    "httpx>=0.24",
+    "python-dotenv>=1.0",
+    "pydantic>=2.6",
+    "alembic>=1.12",
+    "geojson>=3.1",
+    "tenacity>=8.2"
+]
+
+[project.scripts]
+crime-aggregator-api = "aggregator.main:run"
+crime-aggregator-ingest = "aggregator.ingest:main"

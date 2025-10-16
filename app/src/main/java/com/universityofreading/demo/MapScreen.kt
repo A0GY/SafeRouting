@@ -31,6 +31,9 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.*
 import com.google.maps.android.heatmaps.*
+import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.model.TileOverlay
+import com.google.maps.android.heatmaps.Gradient
 
 // ─── Data / JSON / time ─────────────────────────────────────
 import org.threeten.bp.LocalDate
@@ -38,10 +41,13 @@ import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.DateTimeParseException
 import com.universityofreading.demo.data.CrimeData
 import com.universityofreading.demo.data.CrimeDataRepository
+import com.universityofreading.demo.data.tiles.CrimeTileCache
+import com.universityofreading.demo.data.tiles.CrimeTileRepository
 
 // ─── Safest‑route imports ───────────────────────────────────
 import com.universityofreading.demo.navigation.*
 import com.universityofreading.demo.ui.theme.SafeRouteBottomSheet
+import kotlin.math.abs
 
 /*────────────────────────────────────────────────────────────*/
 
@@ -64,7 +70,24 @@ fun MapScreen() {
     
     // Crime data state
     var crimeData by remember { mutableStateOf<List<CrimeData>>(emptyList()) }
-    var isLoading by remember { mutableStateOf(true) }
+    var isLoading by remember { mutableStateOf(false) }
+    var crimeIndex by remember { mutableStateOf<CrimeSpatialIndex?>(null) }
+
+    val tileRepository = remember { CrimeTileRepository() }
+    val tileCache = remember { CrimeTileCache() }
+    var heatmapProvider by remember { mutableStateOf<HeatmapTileProvider?>(null) }
+    var heatmapOverlay by remember { mutableStateOf<TileOverlay?>(null) }
+    var markerHandles by remember { mutableStateOf<List<Marker>>(emptyList()) }
+    var lastFetchedBounds by remember { mutableStateOf<LatLngBounds?>(null) }
+    var lastFetchedZoom by remember { mutableStateOf<Float?>(null) }
+    var refreshJob by remember { mutableStateOf<Job?>(null) }
+
+    val heatmapGradient = remember {
+        Gradient(
+            intArrayOf(Color.rgb(81,255,0), Color.rgb(255,165,0), Color.rgb(255,0,0)),
+            floatArrayOf(0f, 0.5f, 1f)
+        )
+    }
 
     /*── safest‑route state ────────────────────────────────*/
     var startMarker  by remember { mutableStateOf<Marker?>(null) }
@@ -77,26 +100,133 @@ fun MapScreen() {
     var placingStart by remember { mutableStateOf(true) }
 
     val scope = rememberCoroutineScope()
-    
-    // Load crime data once when screen is first composed
-    LaunchedEffect(Unit) {
-        isLoading = true
-        crimeData = CrimeDataRepository.loadCrimeData(context)
-        // Initialize directions client after loading data
-        DirectionsClient.init(context)
-        Log.d("MapScreen", "Crime data loaded: ${crimeData.size} points. Directions API initialized.")
-        isLoading = false
+
+    fun shouldFetch(bounds: LatLngBounds, zoom: Float): Boolean {
+        val previousBounds = lastFetchedBounds
+        val previousZoom = lastFetchedZoom
+        if (previousBounds == null || previousZoom == null) return true
+        if (abs(zoom - previousZoom) >= 1f) return true
+        val contains = previousBounds.contains(bounds.northeast) && previousBounds.contains(bounds.southwest)
+        return !contains
     }
-    
-    // Initialize the crime index after data is loaded
-    val crimeIndex = remember(crimeData) { 
-        if (crimeData.isNotEmpty()) {
-            DebugLogger.logDebug("MapScreen", "Creating CrimeSpatialIndex with ${crimeData.size} crime points")
-            CrimeSpatialIndex(crimeData)
-        } else {
-            DebugLogger.logError("MapScreen", "Cannot create CrimeSpatialIndex - no crime data available")
-            null
+
+    fun clearMarkers() {
+        markerHandles.forEach { it.remove() }
+        markerHandles = emptyList()
+    }
+
+    fun renderForZoom(map: GoogleMap, zoom: Float) {
+        if (crimeData.isEmpty()) {
+            heatmapOverlay?.remove()
+            heatmapOverlay = null
+            heatmapProvider = null
+            clearMarkers()
+            isShowingMarkers.value = false
+            return
         }
+
+        val filtered = filterCrimesByDate(crimeData, selectedFilter)
+        if (zoom >= 14f) {
+            heatmapOverlay?.remove()
+            heatmapOverlay = null
+            heatmapProvider = null
+            clearMarkers()
+            val markers = filtered.take(500).mapNotNull { c ->
+                map.addMarker(
+                    MarkerOptions().position(LatLng(c.latitude, c.longitude)).icon(crimeMarkerIcon)
+                )?.apply { tag = c }
+            }
+            markerHandles = markers
+            isShowingMarkers.value = true
+        } else {
+            clearMarkers()
+            isShowingMarkers.value = false
+            val weighted = filtered.map {
+                WeightedLatLng(LatLng(it.latitude, it.longitude), it.severity + 1)
+            }
+            if (weighted.isEmpty()) {
+                heatmapOverlay?.remove()
+                heatmapOverlay = null
+                heatmapProvider = null
+            } else {
+                val provider = heatmapProvider ?: HeatmapTileProvider.Builder()
+                    .weightedData(weighted)
+                    .gradient(heatmapGradient)
+                    .radius(50)
+                    .build().also { heatmapProvider = it }
+                provider.setWeightedData(weighted)
+                if (heatmapOverlay == null) {
+                    heatmapOverlay = map.addTileOverlay(TileOverlayOptions().tileProvider(provider))
+                } else {
+                    heatmapOverlay?.clearTileCache()
+                }
+            }
+        }
+    }
+
+    fun queueRefresh(map: GoogleMap, force: Boolean = false) {
+        val bounds = map.projection.visibleRegion.latLngBounds
+        val zoom = map.cameraPosition.zoom
+        if (!force && !shouldFetch(bounds, zoom)) return
+        refreshJob?.cancel()
+        refreshJob = scope.launch {
+            isLoading = true
+            try {
+                val response = tileRepository.fetchTiles(
+                    north = bounds.northeast.latitude,
+                    south = bounds.southwest.latitude,
+                    east = bounds.northeast.longitude,
+                    west = bounds.southwest.longitude,
+                    zoom = zoom.toInt(),
+                    cached = tileCache.currentRevisions()
+                )
+                val (snapshots, removed) = tileRepository.mapToSnapshots(response)
+                val diff = tileCache.applyResponse(snapshots, removed)
+                val affectedTiles = diff.upserts.map { it.tileId }.toMutableSet().apply {
+                    addAll(diff.removedTiles)
+                }
+
+                if (crimeIndex == null && diff.combinedIncidents.isNotEmpty()) {
+                    val index = CrimeSpatialIndex(diff.combinedIncidents)
+                    crimeIndex = index
+                    SafeRoutePlanner.setCrimeSpatialIndex(index)
+                } else if (crimeIndex != null && (diff.upserts.isNotEmpty() || diff.removedTiles.isNotEmpty())) {
+                    crimeIndex?.applyTileDiff(diff)
+                    SafeRoutePlanner.invalidateCacheForTiles(affectedTiles)
+                }
+
+                if (diff.upserts.isNotEmpty() || diff.removedTiles.isNotEmpty() || crimeData.isEmpty()) {
+                    crimeData = diff.combinedIncidents
+                }
+
+                lastFetchedBounds = bounds
+                lastFetchedZoom = zoom
+                renderForZoom(map, map.cameraPosition.zoom)
+            } catch (e: Exception) {
+                DebugLogger.logError("MapScreen", "Tile refresh failed", e)
+                if (crimeData.isEmpty()) {
+                    try {
+                        val fallback = CrimeDataRepository.loadCrimeData(context)
+                        crimeData = fallback
+                        val index = CrimeSpatialIndex(fallback)
+                        crimeIndex = index
+                        SafeRoutePlanner.setCrimeSpatialIndex(index)
+                    } catch (fallbackError: Exception) {
+                        DebugLogger.logError("MapScreen", "Fallback crime data load failed", fallbackError)
+                    }
+                }
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Unable to update crime map", Toast.LENGTH_SHORT).show()
+                    googleMap?.let { renderForZoom(it, it.cameraPosition.zoom) }
+                }
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        DirectionsClient.init(context)
     }
 
     /*── MapView lifecycle ─────────────────────────────────*/
@@ -124,26 +254,11 @@ fun MapScreen() {
                             LatLng(51.509865, -0.118092), 11f
                         ))
                         
-                        // Only add heatmap if data is loaded
-                        if (!isLoading && crimeData.isNotEmpty()) {
-                            addHeatMap(map, crimeData, selectedFilter)
-                        }
+                        queueRefresh(map, force = true)
 
-                        // Toggle between heatmap and markers based on zoom level
                         map.setOnCameraIdleListener {
-                            if (isLoading || crimeData.isEmpty()) return@setOnCameraIdleListener
-                            
-                            val z = map.cameraPosition.zoom
-                            if (z >= 14f && !isShowingMarkers.value) {
-                                map.clear()
-                                // Pass the pre-created icon
-                                showMarkers(map, crimeData, selectedFilter, crimeMarkerIcon)
-                                isShowingMarkers.value = true
-                            } else if (z < 14f && isShowingMarkers.value) {
-                                map.clear()
-                                addHeatMap(map, crimeData, selectedFilter)
-                                isShowingMarkers.value = false
-                            }
+                            renderForZoom(map, map.cameraPosition.zoom)
+                            queueRefresh(map)
                         }
 
                         // Handle user clicks on map to place markers
@@ -163,13 +278,16 @@ fun MapScreen() {
                             }
                             
                             // Try to lazily initialize the spatial index if it's null
-                            val spatialIndex = if (crimeIndex == null) {
-                                DebugLogger.logDebug("MapScreen", "Trying to create spatial index on-demand")
+                            val spatialIndex = crimeIndex ?: run {
+                                DebugLogger.logDebug("MapScreen", "Creating spatial index on-demand")
                                 if (crimeData.isNotEmpty()) {
-                                    CrimeSpatialIndex(crimeData)
-                                } else null
-                            } else {
-                                crimeIndex
+                                    val index = CrimeSpatialIndex(crimeData)
+                                    crimeIndex = index
+                                    SafeRoutePlanner.setCrimeSpatialIndex(index)
+                                    index
+                                } else {
+                                    null
+                                }
                             }
                             
                             // Final check if we have a spatial index
@@ -246,7 +364,10 @@ fun MapScreen() {
                                     // Obtain the spatial index reference again
                                     val spatialIndex = crimeIndex ?: run {
                                         if (crimeData.isNotEmpty()) {
-                                            CrimeSpatialIndex(crimeData)
+                                            val index = CrimeSpatialIndex(crimeData)
+                                            crimeIndex = index
+                                            SafeRoutePlanner.setCrimeSpatialIndex(index)
+                                            index
                                         } else null
                                     }
                                     
@@ -276,34 +397,14 @@ fun MapScreen() {
 
     /*── react to date‑filter change ───────────────────────*/
     LaunchedEffect(selectedFilter) {
-        if (isLoading || crimeData.isEmpty()) return@LaunchedEffect
-        
-        googleMap?.let { map ->
-            map.clear()
-            if (map.cameraPosition.zoom >= 14f) {
-                showMarkers(map, crimeData, selectedFilter, crimeMarkerIcon)
-                isShowingMarkers.value = true
-            } else {
-                addHeatMap(map, crimeData, selectedFilter)
-                isShowingMarkers.value = false
-            }
-        }
+        if (crimeData.isEmpty()) return@LaunchedEffect
+        googleMap?.let { map -> renderForZoom(map, map.cameraPosition.zoom) }
     }
     
     // Update map when crime data changes
     LaunchedEffect(crimeData) {
-        if (isLoading || crimeData.isEmpty()) return@LaunchedEffect
-        
-        googleMap?.let { map ->
-            map.clear()
-            if (map.cameraPosition.zoom >= 14f) {
-                showMarkers(map, crimeData, selectedFilter, crimeMarkerIcon)
-                isShowingMarkers.value = true
-            } else {
-                addHeatMap(map, crimeData, selectedFilter)
-                isShowingMarkers.value = false
-            }
-        }
+        if (crimeData.isEmpty()) return@LaunchedEffect
+        googleMap?.let { map -> renderForZoom(map, map.cameraPosition.zoom) }
     }
 
     /*── Bottom sheet with slider & buttons ───────────────*/
@@ -496,39 +597,6 @@ private suspend fun drawSafestRoute(
             ).show()
         }
         throw e
-    }
-}
-
-// Add heatmap of crime data to the map
-private fun addHeatMap(map: GoogleMap, crimeData: List<CrimeData>, opt: DateFilterOption) {
-    // Load and filter crime data
-    val crimes = filterCrimesByDate(crimeData, opt)
-    
-    // Convert to weighted points for heatmap
-    val weighted = crimes.map {
-        WeightedLatLng(LatLng(it.latitude, it.longitude), it.severity + 1)
-    }
-    
-    // Create a gradient from green (low) to orange to red (high)
-    val colors = intArrayOf(Color.rgb(81,255,0), Color.rgb(255,165,0), Color.rgb(255,0,0))
-    
-    val provider = HeatmapTileProvider.Builder()
-        .weightedData(weighted)
-        .gradient(Gradient(colors,floatArrayOf(0f,0.5f,1f)))
-        .radius(50).build()
-        
-    map.addTileOverlay(TileOverlayOptions().tileProvider(provider))
-}
-
-// Display individual markers for crimes when zoomed in
-private fun showMarkers(map: GoogleMap, crimeData: List<CrimeData>, opt: DateFilterOption, markerIcon: BitmapDescriptor) {
-    val crimes = filterCrimesByDate(crimeData, opt)
-    
-    // Add a marker for each crime
-    crimes.forEach { c ->
-        map.addMarker(
-            MarkerOptions().position(LatLng(c.latitude,c.longitude)).icon(markerIcon)
-        )?.tag = c
     }
 }
 

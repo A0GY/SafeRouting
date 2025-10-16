@@ -1,11 +1,11 @@
 package com.universityofreading.demo.navigation
 
-import android.util.Log
 import com.github.davidmoten.rtree.RTree
 import com.github.davidmoten.rtree.geometry.Geometries
 import com.github.davidmoten.rtree.geometry.Point
 import com.google.android.gms.maps.model.LatLng
 import com.universityofreading.demo.data.CrimeData
+import com.universityofreading.demo.data.tiles.CrimeTileDiff
 import com.universityofreading.demo.util.DebugLogger
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
@@ -18,6 +18,9 @@ import kotlin.math.min
 import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.math.sqrt
+import kotlin.math.ln
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.atomic.AtomicLong
 
 /**
  * Spatial index for efficient crime risk queries.
@@ -60,32 +63,83 @@ class CrimeSpatialIndex(crimes: List<CrimeData>) {
         // Default multiplier is 0.5 for unlisted types (reduced from 1.0)
     )
 
-    // Build an immutable R‑tree filled with all crime points
-    private val tree: RTree<CrimeData, Point> =
-        crimes.fold(RTree.star().create()) { acc, crime ->
-            acc.add(
-                crime,
-                Geometries.pointGeographic(crime.longitude, crime.latitude)
-            )
-        }
+    // Build an R-tree filled with crime points. The structure is mutable so we can
+    // incrementally update it when tile data streams in from the aggregation service.
+    private var tree: RTree<CrimeData, Point> = RTree.star().create()
+    private val tileBuckets = ConcurrentHashMap<String, MutableList<CrimeData>>()
+    private val revision = AtomicLong(0L)
+    private val treeLock = Any()
     
     // Parse crime dates once for efficient risk calculation
-    private val crimeDates = crimes.associate { crime ->
-        crime to parseDate(crime.date)
+    private val crimeDates = ConcurrentHashMap<CrimeData, LocalDate?>().apply {
+        crimes.forEach { crime ->
+            this[crime] = parseDate(crime.date)
+        }
     }
     
     // Current date for relative date calculations
     private val currentDate = LocalDate.now()
 
     init {
+        addCrimes(crimes)
         DebugLogger.logDebug(TAG, "Created spatial index with ${crimes.size} crime points")
     }
+
+    fun currentRevision(): Long = revision.get()
 
     /**
      * Returns the number of crime points in this spatial index
      */
     fun getCrimeCount(): Int {
         return crimeDates.size
+    }
+
+    private fun addCrimes(crimes: List<CrimeData>) {
+        if (crimes.isEmpty()) return
+        synchronized(treeLock) {
+            crimes.forEach { crime ->
+                tileBuckets.getOrPut(tileIdFor(crime.latitude, crime.longitude)) { mutableListOf() }
+                    .add(crime)
+                tree = tree.add(
+                    crime,
+                    Geometries.pointGeographic(crime.longitude, crime.latitude)
+                )
+                crimeDates[crime] = parseDate(crime.date)
+            }
+            revision.incrementAndGet()
+        }
+    }
+
+    fun applyTileDiff(diff: CrimeTileDiff): Long {
+        synchronized(treeLock) {
+            diff.removedTiles.forEach { tileId ->
+                tileBuckets.remove(tileId)?.forEach { crime ->
+                    tree = tree.delete(
+                        crime,
+                        Geometries.pointGeographic(crime.longitude, crime.latitude)
+                    )
+                    crimeDates.remove(crime)
+                }
+            }
+            diff.upserts.forEach { snapshot ->
+                tileBuckets.remove(snapshot.tileId)?.forEach { crime ->
+                    tree = tree.delete(
+                        crime,
+                        Geometries.pointGeographic(crime.longitude, crime.latitude)
+                    )
+                    crimeDates.remove(crime)
+                }
+                tileBuckets[snapshot.tileId] = snapshot.incidents.toMutableList()
+                snapshot.incidents.forEach { crime ->
+                    tree = tree.add(
+                        crime,
+                        Geometries.pointGeographic(crime.longitude, crime.latitude)
+                    )
+                    crimeDates[crime] = parseDate(crime.date)
+                }
+            }
+            return revision.incrementAndGet()
+        }
     }
 
     /** 
@@ -142,7 +196,7 @@ class CrimeSpatialIndex(crimes: List<CrimeData>) {
                 val severityFactor = 0.1 + (crime.severity / 10.0)
                 
                 // Type weighting (some crime types are more relevant to pedestrian safety)
-                val typeWeight = crimeTypeWeights[crime.type.lowercase()] ?: 0.5  
+                val typeWeight = crimeTypeWeights[normalizeCrimeType(crime.type)] ?: 0.5
                 
                 // Recency factor (newer crimes have more impact)
                 val daysAgo = getDaysAgo(crime)
@@ -197,6 +251,10 @@ class CrimeSpatialIndex(crimes: List<CrimeData>) {
         val date = crimeDates[crime] ?: return MAX_CRIME_AGE_DAYS.toLong()
         return currentDate.toEpochDay() - date.toEpochDay()
     }
+
+    fun tilesForRouteSamples(samples: List<LatLng>, zoom: Int = TILE_ZOOM_FOR_ROUTES): Set<String> {
+        return samples.map { tileIdFor(it.latitude, it.longitude, zoom) }.toSet()
+    }
     
     /**
      * Parse crime date safely, handling various formats
@@ -244,6 +302,8 @@ class CrimeSpatialIndex(crimes: List<CrimeData>) {
     }
 
     companion object {
+        const val TILE_ZOOM_FOR_ROUTES = 15
+
         /**
          * Get a risk multiplier based on the time of day
          * @param hour Hour of day (0-23)
@@ -259,6 +319,19 @@ class CrimeSpatialIndex(crimes: List<CrimeData>) {
                 else -> 1.0       // Fallback
             }
         }
+
+        fun tileIdFor(lat: Double, lon: Double, zoom: Int = TILE_ZOOM_FOR_ROUTES): String {
+            val clampedLat = max(-85.05112878, min(85.05112878, lat))
+            val wrappedLon = ((lon + 180.0) % 360.0) - 180.0
+            val latRad = Math.toRadians(clampedLat)
+            val n = 1 shl zoom
+            val xTile = ((wrappedLon + 180.0) / 360.0 * n).toInt().coerceIn(0, n - 1)
+            val yTile = (((1.0 - ln(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2.0) * n)
+                .toInt().coerceIn(0, n - 1)
+            return "z${zoom}_${xTile}_${yTile}"
+        }
+
+        fun normalizeCrimeType(raw: String): String = raw.lowercase().replace(" ", "-")
     }
 
     /**
