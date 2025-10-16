@@ -20,7 +20,8 @@ SafeRouting highlights UK crime data on top of Google Maps, compares “Safest�
    pip install -e .
    crime-aggregator-api
    ```
+   > Windows shortcut: run `run.bat --ingest` from the repo root to create the virtualenv, fetch Police data for the last three months, and start the API automatically.
 4. (Optional) ingest sample data: `crime-aggregator-ingest --months 3`
-5. Run the Android app – the map will stream heatmaps/markers for the visible viewport and the safest-route toggle will react instantly as tiles change.
+5. Run the Android app – the map will stream heatmaps/markers for the visible viewport and the safest-route toggle will react instantly as tiles change. If the API has not ingested data yet, the app will fall back to the bundled sample dataset so you still see crime overlays while testing.
 
 See the full setup guide for hosting recommendations, moderation hooks, and retention policies.

@@ -97,6 +97,8 @@ source .venv/bin/activate
 pip install -e .
 ```
 
+> **Windows shortcut**: run `run.bat --ingest` from the repository root. The script creates/updates the virtual environment, optionally pulls three months of Police API data, and then launches the FastAPI server.
+
 ### Database setup
 - For PostgreSQL, create the database manually (e.g., `createdb saferouting`).
 - Tables are auto-created on startup via SQLAlchemy metadata.
@@ -142,7 +144,7 @@ Android Studio will prompt for missing SDK packages. Ensure the following in **S
    ./gradlew :app:installDebug
    adb shell am start -n com.universityofreading.demo/.MainActivity
    ```
-4. Use the **Safest/Fastest** toggle to compare routes. Tile streaming will automatically adjust overlays and routing risk without reloading the entire dataset.
+4. Use the **Safest/Fastest** toggle to compare routes. Tile streaming will automatically adjust overlays and routing risk without reloading the entire dataset. If the aggregator returns no incidents (e.g., before the first ingestion run completes) the app automatically falls back to its bundled sample dataset so you still see markers and heatmaps.
 
 ### Build configuration tips
 - Override the aggregator base URL for production builds using Gradle properties (see §5).

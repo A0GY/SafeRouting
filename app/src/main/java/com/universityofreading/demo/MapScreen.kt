@@ -197,6 +197,23 @@ fun MapScreen() {
 
                 if (diff.upserts.isNotEmpty() || diff.removedTiles.isNotEmpty() || crimeData.isEmpty()) {
                     crimeData = diff.combinedIncidents
+
+                    if (crimeData.isEmpty() && tileCache.currentRevisions().isEmpty()) {
+                        DebugLogger.logDebug("MapScreen", "No live tiles available; loading bundled sample data")
+                        tileCache.invalidateAll()
+                        val fallback = CrimeDataRepository.loadCrimeData(context)
+                        crimeData = fallback
+                        val fallbackIndex = CrimeSpatialIndex(fallback)
+                        crimeIndex = fallbackIndex
+                        SafeRoutePlanner.setCrimeSpatialIndex(fallbackIndex)
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                context,
+                                "No live data yet – showing sample crime map",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
                 }
 
                 lastFetchedBounds = bounds
