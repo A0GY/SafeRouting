@@ -18,6 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Backend API configuration
+        buildConfigField("String", "API_BASE_URL", "\"https://api.saferouting.local/\"")
     }
 
     buildTypes {

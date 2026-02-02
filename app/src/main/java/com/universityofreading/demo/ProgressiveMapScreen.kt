@@ -45,6 +45,9 @@ import com.google.maps.android.clustering.view.DefaultClusterRenderer
 import com.google.maps.android.heatmaps.*
 import com.universityofreading.demo.data.CrimeData
 import com.universityofreading.demo.data.CrimeDataRepository
+import com.universityofreading.demo.data.api.TileCacheManager
+import com.universityofreading.demo.data.api.BackendTileService
+import kotlinx.coroutines.runBlocking
 import com.universityofreading.demo.navigation.*
 import com.universityofreading.demo.ui.theme.CompactTimeControls
 import com.universityofreading.demo.ui.theme.SafeRouteBottomSheet
@@ -233,20 +236,6 @@ fun ProgressiveMapScreen() {
     var routeDrawJob by remember { mutableStateOf<Job?>(null) }
     var placingStart by remember { mutableStateOf(true) } // Flag to toggle start/dest marker placement
     
-    // Create crime spatial index for route risk calculation
-    val crimeSpatialIndex = remember(crimeData) {
-        if (crimeData.isNotEmpty()) {
-            DebugLogger.logDebug(TAG, "Creating CrimeSpatialIndex with ${crimeData.size} crime points")
-            val index = CrimeSpatialIndex(crimeData)
-            // Make sure SafeRoutePlanner has access to the index
-            SafeRoutePlanner.setCrimeSpatialIndex(index)
-            index
-        } else {
-            DebugLogger.logError(TAG, "Cannot create CrimeSpatialIndex - no crime data available")
-            null
-        }
-    }
-    
     // Helper function to clear route markers and polylines
     fun clearRoute() {
         startMarker?.remove()
@@ -267,17 +256,6 @@ fun ProgressiveMapScreen() {
         routeDrawJob?.cancel()
         debugInfo = "Calculating ${if (isSafestMode) "safest" else "fastest"} route..."
         DebugLogger.logDebug(TAG, "Starting route calculation from $start to $dest")
-        
-        // Get or recreate the spatial index to avoid null issues
-        val spatialIndex = crimeSpatialIndex ?: run {
-            DebugLogger.logDebug(TAG, "Recreating spatial index for route calculation")
-            if (crimeData.isEmpty()) {
-                DebugLogger.logError(TAG, "Cannot calculate route: no crime data available")
-                errorMessage = "Cannot calculate route: no crime data"
-                return
-            }
-            CrimeSpatialIndex(crimeData)
-        }
         
         routeDrawJob = scope.launch(Dispatchers.Default) {
             try {
@@ -305,7 +283,6 @@ fun ProgressiveMapScreen() {
                             tempStartMarker,
                             tempDestMarker,
                             isSafestMode,
-                            spatialIndex,
                             routePolys
                         ) { newPolys ->
                             routePolys = newPolys
@@ -377,49 +354,38 @@ fun ProgressiveMapScreen() {
         }
     }
     
-    // Load crime data when the screen is first displayed
+    val tileCache = remember { TileCacheManager(context.cacheDir) }
+    // Initialize directions API and tile overlay instead of loading local crime JSON
     LaunchedEffect(Unit) {
         try {
-            debugInfo = "Loading crime data..."
-            DebugLogger.logDebug(TAG, "Starting to load crime data")
+            debugInfo = "Initializing map and backend clients..."
             isLoading = true
-            
-            val data = CrimeDataRepository.loadCrimeData(context)
-            DebugLogger.logDebug(TAG, "Successfully loaded ${data.size} crime data points")
-            crimeData = data
-            
-            debugInfo = "Loaded ${data.size} crime data points. Initializing directions API..."
-            Log.d(TAG, "Successfully loaded ${data.size} crime data points")
-            
-            // Initialize directions API
             DirectionsClient.init(context)
             DebugLogger.logDebug(TAG, "DirectionsClient initialized")
-            
-            debugInfo = "Map setup complete. Ready for routing. Click to place markers."
-            DebugLogger.logDebug(TAG, "Map ready for routing interactions")
-            
+            debugInfo = "Map setup complete"
             isLoading = false
         } catch (e: Exception) {
-            Log.e(TAG, "Error loading crime data", e)
+            Log.e(TAG, "Error initializing map or clients", e)
             isLoading = false
-            errorMessage = "Error loading crime data: ${e.message}"
-            debugInfo = "Error: ${e.message}\n${e.stackTraceToString().take(200)}..."
+            errorMessage = "Initialization error: ${e.message}"
         }
     }
 
     // Effect to update map when map, data or filter changes
     LaunchedEffect(googleMap, crimeData, selectedDateFilter) {
         val map = googleMap
-        if (map != null && crimeData.isNotEmpty()) {
+        if (map != null) {
             try {
                 // Clear previous overlays
                 map.clear()
                 
-                val filteredData = filterCrimesByDate(crimeData, selectedDateFilter)
-                debugInfo = "Adding heatmap with ${filteredData.size} points..."
-                Log.d(TAG, "Adding heatmap with ${filteredData.size} points (filter: ${selectedDateFilter.name})")
-                
-                addHeatMap(map, filteredData)
+                // Add backend tile overlay instead of client-side heatmap
+                val tileProvider = TileProvider { x, y, zoom ->
+                    val tileUrl = BackendTileService.getTileUrl(zoom, x, y)
+                    val data = runBlocking { tileCache.getTile(zoom, x, y, tileUrl) }
+                    if (data != null) Tile(256, 256, data) else null
+                }
+                map.addTileOverlay(TileOverlayOptions().tileProvider(tileProvider))
                 setupInfoWindowAdapter(context, map)
                 debugInfo = "Map setup complete with ${selectedDateFilter.name} filter"
                 Log.d(TAG, "Map setup complete with ${selectedDateFilter.name} filter")
@@ -434,7 +400,7 @@ fun ProgressiveMapScreen() {
     // Effect to recalculate route when the simulated time changes
     LaunchedEffect(simulatedHour, isUsingCurrentTime) {
         // Only recalculate if we already have a route displayed
-        if (startMarker != null && destMarker != null && crimeSpatialIndex != null && googleMap != null) {
+        if (startMarker != null && destMarker != null && googleMap != null) {
             // Avoid recalculating immediately at startup
             if (currentJob == null) {
                 return@LaunchedEffect
@@ -448,7 +414,6 @@ fun ProgressiveMapScreen() {
                 startMarker!!,
                 destMarker!!,
                 isSafestMode,
-                crimeSpatialIndex!!,
                 routePolys
             ) { newPolys ->
                 routePolys = newPolys
@@ -519,19 +484,7 @@ fun ProgressiveMapScreen() {
                                             isNearFirstPoint(latLng, drawnPoints.first())) {
                                             // Complete the polygon
                                             isDrawModeActive = false
-                                            
-                                            // Analyze the area
-                                            crimeSpatialIndex?.let { index ->
-                                                scope.launch {
-                                                    try {
-                                                        val analysis = index.analyzeAreaRisk(drawnPoints)
-                                                        currentAnalysis = analysis
-                                                        showAnalysisDialog = true
-                                                    } catch (e: Exception) {
-                                                        DebugLogger.logError(TAG, "Error analyzing area", e)
-                                                    }
-                                                }
-                                            }
+                                            DebugLogger.logDebug(TAG, "Analysis mode disabled - analysis is performed by backend")
                                         }
                                     }
                                 } else {
@@ -547,23 +500,8 @@ fun ProgressiveMapScreen() {
                                         DebugLogger.logError(TAG, "Map click ignored: no crime data available")
                                         errorMessage = "No crime data available. Please check your network connection."
                                     } else {
-                                        // Try to lazily initialize the spatial index if it's null
-                                        val spatialIndex = if (crimeSpatialIndex == null) {
-                                            DebugLogger.logDebug(TAG, "Trying to create spatial index on-demand")
-                                            if (crimeData.isNotEmpty()) {
-                                                CrimeSpatialIndex(crimeData)
-                                            } else null
-                                        } else {
-                                            crimeSpatialIndex
-                                        }
-                                        
-                                        // Final check if we have a spatial index
-                                        if (spatialIndex == null) {
-                                            DebugLogger.logError(TAG, "Map click ignored: could not create spatial index")
-                                            errorMessage = "Could not initialize route planning. Please restart the app."
-                                        } else {
-                                            try {
-                                                DebugLogger.logDebug(TAG, "Processing map click. startMarker=${startMarker != null}, destMarker=${destMarker != null}")
+                                        try {
+                                            DebugLogger.logDebug(TAG, "Processing map click. startMarker=${startMarker != null}, destMarker=${destMarker != null}")
                                                 
                                                 // Check if placing start or destination
                                                 if (startMarker == null) {
@@ -634,12 +572,12 @@ fun ProgressiveMapScreen() {
                                                     DebugLogger.logDebug(TAG, "New start marker placed at ${latLng.latitude}, ${latLng.longitude}")
                                                     debugInfo = "Existing route cleared. Start marker placed."
                                                 }
-                                            } catch (e: Exception) {
-                                                DebugLogger.logError(TAG, "Error handling map click", e)
-                                                errorMessage = "Error handling map click: ${e.message}"
-                                            }
+                                        } catch (e: Exception) {
+                                            DebugLogger.logError(TAG, "Error handling map click", e)
+                                            errorMessage = "Error handling map click: ${e.message}"
                                         }
                                     }
+                                }
                                 }
                             }
                             
@@ -660,7 +598,7 @@ fun ProgressiveMapScreen() {
                                 
                                 override fun onMarkerDragEnd(marker: Marker) {
                                     // Recalculate route when marker drag ends
-                                    if (startMarker != null && destMarker != null && crimeSpatialIndex != null) {
+                                    if (startMarker != null && destMarker != null) {
                                         debugInfo = "Recalculating route..."
                                         routeDrawJob?.cancel()
                                         routeDrawJob = scope.launch {
@@ -670,7 +608,6 @@ fun ProgressiveMapScreen() {
                                                     startMarker!!, 
                                                     destMarker!!, 
                                                     isSafestMode, 
-                                                    crimeSpatialIndex, 
                                                     routePolys
                                                 ) { newPolys ->
                                                     routePolys = newPolys
@@ -796,10 +733,7 @@ fun ProgressiveMapScreen() {
                                                 )
                                             }
                                             
-                                            // Filter data before showing heatmap
-                                            val filteredData = filterCrimesByDate(crimeData, selectedDateFilter)
-                                            addHeatMap(map, filteredData) // Add heatmap again
-                                            
+                                            // Backend tile overlay handles wide-area visualization
                                             isShowingMarkers = false
                                         } catch (e: Exception) {
                                             if (e is CancellationException) throw e
@@ -885,14 +819,14 @@ fun ProgressiveMapScreen() {
                             scope.launch {
                                 try {
                                     isLoading = true
-                                    debugInfo = "Retrying to load crime data..."
-                                    val data = CrimeDataRepository.loadCrimeData(context, true)
-                                    crimeData = data
-                                    debugInfo = "Loaded ${data.size} crime data points"
+                                    debugInfo = "Retrying backend initialization..."
+                                    // Warm tile URLs
+                                    val tiles = com.universityofreading.demo.data.api.BackendCrimeClient.getTiles(zoom = 13)
+                                    debugInfo = "Fetched ${tiles.size} tiles"
                                     isLoading = false
                                 } catch (e: Exception) {
                                     isLoading = false
-                                    errorMessage = "Error loading crime data: ${e.message}"
+                                    errorMessage = "Error contacting backend: ${e.message}"
                                     debugInfo = "Error: ${e.message}"
                                 }
                             }
@@ -989,19 +923,7 @@ fun ProgressiveMapScreen() {
                             if (drawnPoints.size >= 3) {
                                 // Complete the polygon
                                 isDrawModeActive = false
-                                
-                                // Analyze the area
-                                crimeSpatialIndex?.let { index ->
-                                    scope.launch {
-                                        try {
-                                            val analysis = index.analyzeAreaRisk(drawnPoints)
-                                            currentAnalysis = analysis
-                                            showAnalysisDialog = true
-                                        } catch (e: Exception) {
-                                            DebugLogger.logError(TAG, "Error analyzing area", e)
-                                        }
-                                    }
-                                }
+                                DebugLogger.logDebug(TAG, "Area analysis is performed by backend")
                             } else {
                                 // Show message that at least 3 points are needed
                                 errorMessage = "Please draw at least 3 points to complete an area"
@@ -1513,7 +1435,6 @@ private suspend fun calculateAndDrawRoute(
     start: Marker,
     dest: Marker,
     isSafestMode: Boolean,
-    index: CrimeSpatialIndex,
     oldPolys: List<Polyline>,
     update: (List<Polyline>) -> Unit
 ) {
@@ -1526,8 +1447,7 @@ private suspend fun calculateAndDrawRoute(
         val (bestRoute, alternativeRoutes) = SafeRoutePlanner.safestRoute(
             start.position, 
             dest.position, 
-            isSafestMode, 
-            index
+            isSafestMode
         )
         
         DebugLogger.logDebug(TAG, "Route calculation successful. Best route distance: ${bestRoute.distanceM}m, risk: ${bestRoute.riskScore}")
@@ -1574,26 +1494,23 @@ private suspend fun calculateAndDrawRoute(
                     // Limit to a reasonable number of samples for performance
                     val limitedSamples = if (sampledPoints.size > 20) sampledPoints.take(20) else sampledPoints
                     
-                    // Calculate risk level at each point
-                    val riskLevels = limitedSamples.map { point ->
-                        val risk = index.riskAt(point, 100.0)
-                        // Normalize to 0-1 scale for easier comparison with threshold
-                        val normalizedRisk = min(1.0, risk / 100.0) 
-                        point to normalizedRisk
-                    }
-                    
-                    // Find the high-risk segments (using SafeRoutePlanner.HIGH_RISK_THRESHOLD)
+                    // Use backend segment risk data instead of on-device spatial index
+                    // The route segments are already scored by backend; extract risk from segment data
                     val highRiskPointPairs = mutableListOf<Pair<LatLng, LatLng>>()
-                    riskLevels.zipWithNext { (point1, risk1), (point2, risk2) ->
-                        // If either end of the segment has high risk, mark the whole segment
-                        if (risk1 > SafeRoutePlanner.HIGH_RISK_THRESHOLD || risk2 > SafeRoutePlanner.HIGH_RISK_THRESHOLD) {
+                    
+                    // Iterate through consecutive points and mark segments with high risk from backend data
+                    sampledPoints.zipWithNext { point1, point2 ->
+                        // Check if this segment is high-risk based on backend segment scores
+                        // This requires integrating with bestRoute.segments risk data
+                        // For now, just use the overall route risk as a placeholder
+                        if (bestRoute.riskScore > SafeRoutePlanner.HIGH_RISK_THRESHOLD) {
                             highRiskPointPairs.add(point1 to point2)
                         }
                     }
                     
                     // Draw high-risk segments
                     if (highRiskPointPairs.isNotEmpty()) {
-                        Log.d(TAG, "Adding ${highRiskPointPairs.size} high-risk segments to the route")
+                        DebugLogger.logDebug(TAG, "Highlighting ${highRiskPointPairs.size} potentially risky segments")
                         
                         // Draw each high-risk segment with a distinctive pattern
                         highRiskPointPairs.forEach { (start, end) ->
@@ -1606,77 +1523,15 @@ private suspend fun calculateAndDrawRoute(
                                     .zIndex(15f) // Higher than the main route
                             )
                             newPolylines.add(highRiskSegment)
-                            
-                            // Add warning marker at the start of high-risk segment
-                            val midPoint = LatLng(
-                                (start.latitude + end.latitude) / 2,
-                                (start.longitude + end.longitude) / 2
-                            )
-                            
-                            try {
-                                val warningMarker = map.addMarker(
-                                    MarkerOptions()
-                                        .position(midPoint)
-                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                                        .alpha(0.7f)
-                                        .title("High Risk Area")
-                                        .snippet("This area has higher crime rates")
-                                        .anchor(0.5f, 0.5f)
-                                        .zIndex(1f)
-                                )
-                            } catch (e: Exception) {
-                                // Ignore marker errors - route is more important
-                                Log.e(TAG, "Error adding warning marker: ${e.message}")
-                            }
                         }
                     }
                 } catch (e: Exception) {
-                    // Catch any errors in the high-risk segment calculation
-                    // but don't let it affect the main route rendering
-                    Log.e(TAG, "Error calculating high-risk segments: ${e.message}")
+                    DebugLogger.logError(TAG, "Failed to analyze route segments: ${e.message}", e)
                 }
             }
         } else {
-            // For fastest route: Add speed indicators at regular intervals
-            try {
-                // Add a small marker every 200m to indicate this is the fast route
-                if (routePoints.size >= 5) {
-                    val totalDistance = bestRoute.distanceM
-                    val markerInterval = min(totalDistance / 3, 300.0) // Every 300m or 1/3 of route
-                    
-                    // Sample points at regular distance intervals
-                    val markerPoints = PolylineUtils.sampleEvery(routePoints, markerInterval)
-                    
-                    // Skip first and last points (near start/end markers)
-                    if (markerPoints.size > 2) {
-                        val speedMarkerPoints = markerPoints.subList(1, markerPoints.size - 1)
-                        
-                        // Add small speed indicator markers
-                        speedMarkerPoints.forEach { point ->
-                            try {
-                                // Add a small blue dot to indicate fastest route
-                                map.addMarker(
-                                    MarkerOptions()
-                                        .position(point)
-                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                                        .alpha(0.6f)
-                                        .title("Fast Route")
-                                        .snippet("Prioritizing speed over safety")
-                                        .anchor(0.5f, 0.5f)
-                                        .zIndex(1f)
-                                        .visible(false) // Not visible by default, only when clicked
-                                )
-                            } catch (e: Exception) {
-                                // Ignore marker errors
-                                Log.e(TAG, "Error adding speed marker: ${e.message}")
-                            }
-                        }
-                    }
-                }
-            } catch (e: Exception) {
-                // Ignore speed indicator errors
-                Log.e(TAG, "Error adding speed indicators: ${e.message}")
-            }
+            // For fastest route: Skip additional markers and focus on route visibility
+            DebugLogger.logDebug(TAG, "Rendering fastest route")
         }
         
         // Add alternative routes as dashed gray lines

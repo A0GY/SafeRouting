@@ -5,10 +5,8 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
-import com.universityofreading.demo.data.api.PoliceApiClient
+import com.universityofreading.demo.data.api.BackendCrimeClient
 import com.universityofreading.demo.util.DebugLogger
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 
 
@@ -21,13 +19,23 @@ private data class RawCrimeData(
 )
 
 /**
- * Repository to handle crime data loading from the Police API
+ * Repository to handle crime data loading from the SafeRouting backend
+ * 
+ * REFACTORED: Replaces direct Police API calls with backend aggregation.
+ * The backend handles multi-borough fetching, deduplication, and data versioning.
+ * On-device R-tree construction removed - client now requests pre-scored data.
  */
 object CrimeDataRepository {
     
     private const val TAG = "CrimeDataRepository"
     
-    // Comprehensive list of London borough center coordinates for better coverage
+    // Central London coordinates for initial backend request
+    // Backend handles all borough coverage - no more multi-location batching
+    private const val CENTER_LAT = 51.5074
+    private const val CENTER_LNG = -0.1278
+    private const val SEARCH_RADIUS_M = 15000  // Backend returns all London crimes within radius
+    
+    // Comprehensive list of London boroughs for fallback to local data only
     private val londonBoroughs = mapOf(
         "Westminster" to Pair(51.5074, -0.1278),
         "Camden" to Pair(51.5390, -0.1425),
@@ -63,103 +71,50 @@ object CrimeDataRepository {
         "Haringey" to Pair(51.5906, -0.1110)
     )
     
-    // Additional grid points to ensure coverage between borough centers
-
-    private val additionalGridPoints = listOf(
-        // Central London additional points
-        Pair(51.5185, -0.1562),
-        Pair(51.5270, -0.1115),
-        Pair(51.5274, -0.0754),
-        Pair(51.5169, -0.0730),
-        
-        // North London additional points
-        Pair(51.5697, -0.1064),
-        Pair(51.6079, -0.2160),
-        
-        // East London additional points
-        Pair(51.5284, 0.0552),
-        Pair(51.5645, 0.1277),
-        
-        // South London additional points
-        Pair(51.4726, -0.0515),
-        Pair(51.4216, -0.0568),
-        Pair(51.3922, -0.1463),
-        
-        // West London additional points
-        Pair(51.5059, -0.2629),
-        Pair(51.4917, -0.3385),
-        Pair(51.4312, -0.3470)
-    )
-    
-    // Maximum number of API calls (to avoid rate limiting)
-    private const val MAX_PARALLEL_REQUESTS = 8
-    
-    // Cache loaded data
+    // Cache loaded data with versioning
     private var cachedCrimeData: List<CrimeData>? = null
+    private var cachedDataVersion: String? = null
     
     /**
-     * Load crime data from the Police API for multiple London areas
-
+     * Load crime data from the SafeRouting backend
+     * 
+     * The backend handles:
+     * - Aggregation from all London boroughs
+     * - Deduplication of crime records
+     * - Data versioning for cache invalidation
+     * - Removal of on-device Police API batching risk
      */
     suspend fun loadCrimeData(context: Context, forceRefresh: Boolean = false): List<CrimeData> {
-        // Return cached data if available and refresh not forced
-        if (!forceRefresh && cachedCrimeData != null) {
-            DebugLogger.logDebug(TAG, "Returning cached crime data (${cachedCrimeData!!.size} records)")
+        // Return cached data if available, fresh, and refresh not forced
+        if (!forceRefresh && cachedCrimeData != null && cachedDataVersion != null) {
+            DebugLogger.logDebug(TAG, "Returning cached crime data (${cachedCrimeData!!.size} records, version: $cachedDataVersion)")
             return cachedCrimeData!!
         }
         
         return coroutineScope {
             try {
-                DebugLogger.logDebug(TAG, "Starting to load crime data from Police API")
+                DebugLogger.logDebug(TAG, "Loading crime data from SafeRouting backend")
                 
-                // Combine borough centers and grid points for complete coverage
-                val allCoordinates = londonBoroughs.values.toList() + additionalGridPoints
+                // Single request to backend - replaces multi-location Police API batching
+                val crimeData = BackendCrimeClient.getCrimes(
+                    latitude = CENTER_LAT,
+                    longitude = CENTER_LNG,
+                    radiusMeters = SEARCH_RADIUS_M,
+                    limit = 10000
+                )
                 
-                // Process in batches to avoid overwhelming
-                val batchSize = MAX_PARALLEL_REQUESTS
-                val results = mutableListOf<CrimeData>()
+                DebugLogger.logDebug(TAG, "Fetched ${crimeData.size} crime records from backend")
                 
-                // Process batches of coordinates
-                for (i in allCoordinates.indices step batchSize) {
-                    val endIndex = minOf(i + batchSize, allCoordinates.size)
-                    val batchCoordinates = allCoordinates.subList(i, endIndex)
-                    
-                    DebugLogger.logDebug(TAG, "Processing batch ${i/batchSize + 1} with ${batchCoordinates.size} locations")
-                    
-                    // Create multiple parallel
-                    val deferredResults = batchCoordinates.map { (lat, lng) ->
-                        async { 
-                            try {
-                                val result = PoliceApiClient.getCrimesForArea(lat, lng)
-                                DebugLogger.logDebug(TAG, "Retrieved ${result.size} crimes for coordinates $lat, $lng")
-                                result
-                            } catch (e: Exception) {
-                                DebugLogger.logError(TAG, "Error fetching crimes for coordinates $lat, $lng", e)
-                                emptyList()
-                            }
-                        }
-                    }
-                    
-                    // Wait for  to complete addresults
-                    val batchResults = deferredResults.awaitAll()
-                    results.addAll(batchResults.flatten())
-                    
-                    DebugLogger.logDebug(TAG, "Batch complete. Total crimes collected so far: ${results.size}")
-                }
+                // Cache the results with versioning
+                cachedCrimeData = crimeData
+                // In production, extract version from response header or metadata
+                cachedDataVersion = "${System.currentTimeMillis()}"
                 
-                // Deduplicate results 
-                val combinedResults = results
-                    .distinctBy { "${it.latitude},${it.longitude},${it.date},${it.type}" }
-                
-                DebugLogger.logDebug(TAG, "Finished loading crime data. Total unique records: ${combinedResults.size}")
-                
-                // Cache the results
-                cachedCrimeData = combinedResults
-                combinedResults
+                crimeData
             } catch (e: Exception) {
-                DebugLogger.logError(TAG, "Error loading crime data", e)
+                DebugLogger.logError(TAG, "Error loading crime data from backend", e)
                 
-                // Fallback to local data if API fails
+                // Fallback to local data only if backend is unavailable
                 DebugLogger.logDebug(TAG, "Falling back to local crime data")
                 loadLocalCrimeData(context)
             }

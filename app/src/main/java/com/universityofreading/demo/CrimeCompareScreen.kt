@@ -9,9 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.universityofreading.demo.utils.loadCrimeData
-import com.universityofreading.demo.utils.loadRegions
 import com.universityofreading.demo.data.CrimeData
+import com.universityofreading.demo.data.api.BackendAnalyticsClient
 import com.universityofreading.demo.charts.CrimeSeverityBarChart
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
@@ -35,8 +34,17 @@ enum class CompareDateFilterOption {
 fun CrimeCompareScreen() {
     val context = LocalContext.current
 
-    //  Load region list
-    val allRegions = remember { loadRegions(context) }
+    // Load region list from backend
+    var allRegions by remember { mutableStateOf<List<String>>(emptyList()) }
+    LaunchedEffect(Unit) {
+        try {
+            val boroughs = BackendAnalyticsClient.getBoroughRanking()
+            allRegions = boroughs.map { it.borough }
+        } catch (e: Exception) {
+            DebugLogger.logError("CrimeCompareScreen", "Failed to load regions: ${e.message}", e)
+            allRegions = emptyList()
+        }
+    }
 
     // Two region picks
     var selectedRegionA by remember { mutableStateOf<String?>(null) }
@@ -45,28 +53,32 @@ fun CrimeCompareScreen() {
     // Date filter
     var selectedFilter by remember { mutableStateOf(CompareDateFilterOption.ALL) }
 
-    //  All crimes, loaded once
-    val allCrimes = remember { loadCrimeData(context) }
+    // For per-region details, we will ask the analytics backend when a region is selected
+    var regionAStats by remember { mutableStateOf<RegionStats?>(null) }
+    var regionBStats by remember { mutableStateOf<RegionStats?>(null) }
 
-    //  Filter crimes for Region A
-    val filteredA = remember(selectedRegionA, selectedFilter) {
-        val regionCrimes = if (selectedRegionA == null) emptyList() else {
-            allCrimes.filter { it.region == selectedRegionA }
+    LaunchedEffect(selectedRegionA, selectedFilter) {
+        if (selectedRegionA != null) {
+            val stats = BackendAnalyticsClient.getBoroughStats(selectedRegionA!!)
+            if (stats != null) {
+                val avg = if (stats.timeSeriesData.values.isEmpty()) 0.0 else stats.timeSeriesData.values.average()
+                regionAStats = RegionStats(stats.totalCrimes, avg)
+            }
         }
-        filterCrimesByDate(regionCrimes, selectedFilter)
     }
 
-    // Filter crimes for Region B
-    val filteredB = remember(selectedRegionB, selectedFilter) {
-        val regionCrimes = if (selectedRegionB == null) emptyList() else {
-            allCrimes.filter { it.region == selectedRegionB }
+    LaunchedEffect(selectedRegionB, selectedFilter) {
+        if (selectedRegionB != null) {
+            val stats = BackendAnalyticsClient.getBoroughStats(selectedRegionB!!)
+            if (stats != null) {
+                val avg = if (stats.timeSeriesData.values.isEmpty()) 0.0 else stats.timeSeriesData.values.average()
+                regionBStats = RegionStats(stats.totalCrimes, avg)
+            }
         }
-        filterCrimesByDate(regionCrimes, selectedFilter)
     }
 
-    //  Compute basic stats
-    val statsA = computeRegionStats(filteredA)
-    val statsB = computeRegionStats(filteredB)
+    val statsA = regionAStats ?: RegionStats(0, 0.0)
+    val statsB = regionBStats ?: RegionStats(0, 0.0)
 
     Column(
         modifier = Modifier

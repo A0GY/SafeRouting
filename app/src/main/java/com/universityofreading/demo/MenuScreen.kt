@@ -174,6 +174,44 @@ fun MenuScreen(navController: NavController) {
                     onClick = { navController.navigate(Routes.CRIME_COMPARE_SCREEN) }
                 )
             }
+
+            Spacer(modifier = Modifier.height(16.dp))
+            AnimatedVisibility(
+                visibleState = animationState,
+                enter = fadeIn() + slideInVertically(
+                    initialOffsetY = { 100 },
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessLow
+                    )
+                )
+            ) {
+                MenuCard(
+                    icon = Icons.Filled.Map,
+                    title = "My Routines",
+                    description = "Manage recurring safe routes",
+                    onClick = { navController.navigate(Routes.ROUTINE_LIST) }
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+            AnimatedVisibility(
+                visibleState = animationState,
+                enter = fadeIn() + slideInVertically(
+                    initialOffsetY = { 100 },
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessLow
+                    )
+                )
+            ) {
+                MenuCard(
+                    icon = Icons.Filled.Map,
+                    title = "Report an Incident",
+                    description = "Report safety issues from the field",
+                    onClick = { navController.navigate(Routes.UGC_REPORT) }
+                )
+            }
         }
     }
 }

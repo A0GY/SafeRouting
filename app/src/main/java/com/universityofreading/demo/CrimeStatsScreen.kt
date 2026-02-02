@@ -13,25 +13,62 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.universityofreading.demo.utils.loadCrimeData
-import com.universityofreading.demo.utils.loadRegions
+import com.universityofreading.demo.data.api.BackendAnalyticsClient
+import com.universityofreading.demo.util.DebugLogger
+import kotlinx.coroutines.launch
 
 @Composable
 fun CrimeStatsScreen(viewModel: CrimeStatsViewModel = viewModel()) {
     val context = LocalContext.current
-    val regions = remember { loadRegions(context) }
-    var selectedRegion by remember { mutableStateOf(regions.firstOrNull()) }
+    val scope = rememberCoroutineScope()
+    
+    var selectedBorough by remember { mutableStateOf<String?>(null) }
     var currentStatIndex by remember { mutableIntStateOf(0) }
-
-    val allCrimeData = remember { loadCrimeData(context) }
-
-    // Filter by region
-    val filteredCrimeData = remember(selectedRegion) {
-        allCrimeData.filter { it.region == selectedRegion }
+    var isLoading by remember { mutableStateOf(true) }
+    var errorMessage by remember { mutableStateOf<String?>(null) }
+    var boroughStats by remember { mutableStateOf<Map<String, Any>?>(null) }
+    
+    // Load available boroughs on screen load
+    LaunchedEffect(Unit) {
+        scope.launch {
+            try {
+                DebugLogger.logDebug("CrimeStatsScreen", "Loading borough ranking from backend...")
+                val boroughs = BackendAnalyticsClient.getBoroughRanking()
+                selectedBorough = boroughs.firstOrNull()?.borough
+                isLoading = false
+            } catch (e: Exception) {
+                DebugLogger.logError("CrimeStatsScreen", "Error loading boroughs: ${e.message}", e)
+                errorMessage = "Failed to load borough data: ${e.message}"
+                isLoading = false
+            }
+        }
     }
-
-    val statistics = remember(filteredCrimeData) {
-        viewModel.computeStatistics(selectedRegion, filteredCrimeData)
+    
+    // Load stats when borough changes
+    LaunchedEffect(selectedBorough) {
+        if (selectedBorough != null) {
+            scope.launch {
+                try {
+                    isLoading = true
+                    DebugLogger.logDebug("CrimeStatsScreen", "Loading stats for borough: $selectedBorough")
+                    val stats = BackendAnalyticsClient.getBoroughStats(selectedBorough!!)
+                    boroughStats = mapOf(
+                        "borough" to (stats.borough ?: ""),
+                        "totalCrimes" to (stats.totalCrimes ?: 0),
+                        "riskScore" to (stats.riskScore ?: 0.0),
+                        "categories" to (stats.crimeCategories ?: emptyList()),
+                        "timeseries" to (stats.timeSeriesData),
+                        "recommendations" to (stats.safetyRecommendations ?: emptyList())
+                    )
+                    currentStatIndex = 0
+                    isLoading = false
+                } catch (e: Exception) {
+                    DebugLogger.logError("CrimeStatsScreen", "Error loading stats: ${e.message}", e)
+                    errorMessage = "Failed to load crime stats: ${e.message}"
+                    isLoading = false
+                }
+            }
+        }
     }
 
     Column(
@@ -39,51 +76,52 @@ fun CrimeStatsScreen(viewModel: CrimeStatsViewModel = viewModel()) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        RegionDropdown(
-            regions = regions,
-            selectedRegion = selectedRegion,
-            onRegionSelected = { newRegion ->
-                selectedRegion = newRegion
-                currentStatIndex = 0
-            }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        if (statistics.isNotEmpty()) {
-            val stat = statistics[currentStatIndex]
-
-            Column(
-                modifier = Modifier.weight(1f),
-                horizontalAlignment = Alignment.CenterHorizontally
+        // Borough selector
+        if (!isLoading && errorMessage == null) {
+            OutlinedButton(
+                onClick = { /* Open borough list */ },
+                modifier = Modifier.fillMaxWidth()
             ) {
+                Text(selectedBorough ?: "Select Borough")
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            if (boroughStats != null) {
+                // Display selected stats
+                @Suppress("UNCHECKED_CAST")
+                val categories = (boroughStats?.get("categories") as? List<Any>?) ?: emptyList()
+                val totalCrimes = (boroughStats?.get("totalCrimes") as? Int) ?: 0
+                val riskScore = (boroughStats?.get("riskScore") as? Double) ?: 0.0
+                val recommendations = (boroughStats?.get("recommendations") as? List<String>?) ?: emptyList()
+
                 Text(
-                    text = stat.title,
+                    text = "Borough: $selectedBorough",
                     style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(bottom = 8.dp)
+                )
+
+                Text(
+                    text = "Total Crimes: $totalCrimes | Risk Score: %.1f".format(riskScore),
+                    style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(if (stat.title.contains("Trend")) 400.dp else 300.dp)
-                        .padding(if (stat.title.contains("Trend")) 2.dp else 8.dp)
-                ) {
-                    stat.displayChart(context)
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = stat.description,
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Start,
-                    modifier = Modifier.padding(
-                        horizontal = if (stat.title.contains("Trend")) 8.dp else 16.dp,
-                        vertical = 4.dp
+                // Display safety recommendations
+                if (recommendations.isNotEmpty()) {
+                    Text(
+                        text = "Safety Recommendations:",
+                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.padding(bottom = 8.dp)
                     )
-                )
+                    recommendations.forEach { rec ->
+                        Text(
+                            text = "• $rec",
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                    }
+                }
 
                 Spacer(modifier = Modifier.weight(1f))
 
@@ -93,39 +131,33 @@ fun CrimeStatsScreen(viewModel: CrimeStatsViewModel = viewModel()) {
                         .padding(8.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    if (currentStatIndex > 0) {
-                        IconButton(onClick = { currentStatIndex-- }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Previous")
-                        }
-                    } else {
-                        Spacer(modifier = Modifier.size(48.dp))
+                    Button(onClick = { /* Previous */ }, enabled = currentStatIndex > 0) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Previous")
                     }
-
-                    Text(
-                        text = "${currentStatIndex + 1}/${statistics.size}",
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.align(Alignment.CenterVertically)
-                    )
-
-                    if (currentStatIndex < statistics.size - 1) {
-                        IconButton(onClick = { currentStatIndex++ }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Next")
-                        }
-                    } else {
-                        Spacer(modifier = Modifier.size(48.dp))
+                    Button(onClick = { /* Next */ }, enabled = currentStatIndex < 2) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Next")
                     }
                 }
             }
-        } else {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "No crime data available for ${selectedRegion ?: "selected region"}.",
-                    style = MaterialTheme.typography.bodyLarge
-                )
-            }
+        }
+
+        // Error state
+        if (errorMessage != null) {
+            Text(
+                text = "Error: $errorMessage",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                textAlign = TextAlign.Center
+            )
+        }
+
+        // Loading state
+        if (isLoading) {
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
         }
     }
 }

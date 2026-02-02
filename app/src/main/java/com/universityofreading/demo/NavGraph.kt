@@ -13,6 +13,8 @@ object Routes {
 
     // NEW ROUTE FOR REGION COMPARISON
     const val CRIME_COMPARE_SCREEN = "crime_compare_screen"
+    const val ROUTINE_LIST = "routine_list"
+    const val UGC_REPORT = "ugc_report"
 }
 
 @Composable
@@ -41,6 +43,16 @@ fun AppNavHost() {
         // 4) Crime Compare screen
         composable(Routes.CRIME_COMPARE_SCREEN) {
             CrimeCompareScreen()
+        }
+
+        // 5) Routine list
+        composable(Routes.ROUTINE_LIST) {
+            RoutineListScreen()
+        }
+
+        // 6) UGC report
+        composable(Routes.UGC_REPORT) {
+            UGCReportScreen()
         }
     }
 }

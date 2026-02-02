@@ -30,15 +30,17 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.Tile
+import com.google.android.gms.maps.model.TileProvider
+import kotlinx.coroutines.runBlocking
+import com.universityofreading.demo.data.api.TileCacheManager
+import com.universityofreading.demo.data.api.BackendTileService
 import com.google.maps.android.heatmaps.*
 
 // ─── Data / JSON / time ─────────────────────────────────────
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.DateTimeParseException
-import com.universityofreading.demo.data.CrimeData
-import com.universityofreading.demo.data.CrimeDataRepository
-
 // ─── Safest‑route imports ───────────────────────────────────
 import com.universityofreading.demo.navigation.*
 import com.universityofreading.demo.ui.theme.SafeRouteBottomSheet
@@ -55,17 +57,7 @@ fun MapScreen() {
     val mapView   = remember { MapView(context) }
     var googleMap by remember { mutableStateOf<GoogleMap?>(null) }
     val isShowingMarkers = remember { mutableStateOf(false) }
-    var selectedFilter   by remember { mutableStateOf(DateFilterOption.ALL) }
     
-    // Create crime marker icon once
-    val crimeMarkerIcon = remember {
-        bitmapDescriptorFromVector(context, R.drawable.ic_question_mark, 1.2f)
-    }
-    
-    // Crime data state
-    var crimeData by remember { mutableStateOf<List<CrimeData>>(emptyList()) }
-    var isLoading by remember { mutableStateOf(true) }
-
     /*── safest‑route state ────────────────────────────────*/
     var startMarker  by remember { mutableStateOf<Marker?>(null) }
     var destMarker   by remember { mutableStateOf<Marker?>(null) }
@@ -78,26 +70,22 @@ fun MapScreen() {
 
     val scope = rememberCoroutineScope()
     
-    // Load crime data once when screen is first composed
+    // Initialize clients and tile cache on first composition
     LaunchedEffect(Unit) {
-        isLoading = true
-        crimeData = CrimeDataRepository.loadCrimeData(context)
-        // Initialize directions client after loading data
+        // Initialize directions client for route calculation
         DirectionsClient.init(context)
-        Log.d("MapScreen", "Crime data loaded: ${crimeData.size} points. Directions API initialized.")
-        isLoading = false
+        // Warm backend tile URLs (cache) for current zoom
+        try {
+            val tiles = com.universityofreading.demo.data.api.BackendCrimeClient.getTiles(zoom = 13)
+            DebugLogger.logDebug("MapScreen", "Pre-fetched ${tiles.size} tile URLs from backend")
+        } catch (e: Exception) {
+            DebugLogger.logError("MapScreen", "Failed to fetch tile URLs: ${e.message}", e)
+        }
+        Log.d("MapScreen", "Directions API initialized, backend tile URLs warmed.")
     }
     
-    // Initialize the crime index after data is loaded
-    val crimeIndex = remember(crimeData) { 
-        if (crimeData.isNotEmpty()) {
-            DebugLogger.logDebug("MapScreen", "Creating CrimeSpatialIndex with ${crimeData.size} crime points")
-            CrimeSpatialIndex(crimeData)
-        } else {
-            DebugLogger.logError("MapScreen", "Cannot create CrimeSpatialIndex - no crime data available")
-            null
-        }
-    }
+    // Note: route scoring is now performed by backend. We no longer create CrimeSpatialIndex here.
+    val tileCache = remember { TileCacheManager(context.cacheDir) }
 
     /*── MapView lifecycle ─────────────────────────────────*/
     DisposableEffect(mapView) {
@@ -107,9 +95,6 @@ fun MapScreen() {
 
     /*──────────────── UI layout ───────────────────────────*/
     Column(Modifier.fillMaxSize()) {
-
-        // Date filter options at the top of screen
-        DateFilterRow(selectedFilter) { selectedFilter = it }
 
         AndroidView(
             modifier = Modifier.weight(1f),
@@ -124,59 +109,32 @@ fun MapScreen() {
                             LatLng(51.509865, -0.118092), 11f
                         ))
                         
-                        // Only add heatmap if data is loaded
-                        if (!isLoading && crimeData.isNotEmpty()) {
-                            addHeatMap(map, crimeData, selectedFilter)
-                        }
-
-                        // Toggle between heatmap and markers based on zoom level
-                        map.setOnCameraIdleListener {
-                            if (isLoading || crimeData.isEmpty()) return@setOnCameraIdleListener
-                            
-                            val z = map.cameraPosition.zoom
-                            if (z >= 14f && !isShowingMarkers.value) {
-                                map.clear()
-                                // Pass the pre-created icon
-                                showMarkers(map, crimeData, selectedFilter, crimeMarkerIcon)
-                                isShowingMarkers.value = true
-                            } else if (z < 14f && isShowingMarkers.value) {
-                                map.clear()
-                                addHeatMap(map, crimeData, selectedFilter)
-                                isShowingMarkers.value = false
+                        // Add backend tile overlay (vector/raster) for crime visualization
+                        // This replaces the client-side heatmap and bulk marker rendering
+                        try {
+                            val tileProvider = TileProvider { x, y, zoom ->
+                                val tileUrl = BackendTileService.getTileUrl(zoom, x, y)
+                                val data = runBlocking { tileCache.getTile(zoom, x, y, tileUrl) }
+                                if (data != null) Tile(256, 256, data) else null
                             }
+                            map.addTileOverlay(TileOverlayOptions().tileProvider(tileProvider))
+                            val persistentTileProvider = tileProvider
+                            
+                            // On zoom or pan, re-add tile overlay if cleared
+                            map.setOnCameraIdleListener {
+                                // Backend tile overlay provides all crime visualization
+                                // No need to render client-side markers or heatmap
+                            }
+                        } catch (e: Exception) {
+                            DebugLogger.logError("MapScreen", "Failed to add backend tile overlay: ${e.message}", e)
                         }
 
-                        // Handle user clicks on map to place markers
+                        // Handle user clicks on map to place route markers
                         map.setOnMapClickListener { pt ->
                             DebugLogger.logClick("MapScreen", "Map clicked at: ${pt.latitude}, ${pt.longitude}")
                             
-                            // Check loading state first
-                            if (isLoading) {
-                                DebugLogger.logError("MapScreen", "Map click ignored: still loading data")
-                                return@setOnMapClickListener
-                            }
-                            
-                            // Check if crime data is available
-                            if (crimeData.isEmpty()) {
-                                DebugLogger.logError("MapScreen", "Map click ignored: no crime data available")
-                                return@setOnMapClickListener
-                            }
-                            
-                            // Try to lazily initialize the spatial index if it's null
-                            val spatialIndex = if (crimeIndex == null) {
-                                DebugLogger.logDebug("MapScreen", "Trying to create spatial index on-demand")
-                                if (crimeData.isNotEmpty()) {
-                                    CrimeSpatialIndex(crimeData)
-                                } else null
-                            } else {
-                                crimeIndex
-                            }
-                            
-                            // Final check if we have a spatial index
-                            if (spatialIndex == null) {
-                                DebugLogger.logError("MapScreen", "Map click ignored: could not create spatial index")
-                                return@setOnMapClickListener
-                            }
+                            // Route planning does not depend on crime data
+                            // Backend scoring will be performed when calculating routes
                             
                             if (placingStart) {
                                 DebugLogger.logDebug("MapScreen", "Placing start marker")
@@ -212,13 +170,13 @@ fun MapScreen() {
                                 // Show the bottom sheet with route options
                                 bottomSheet = true
                                 
-                                // Calculate and draw the best route
+                                // Calculate and draw the best route (backend-driven)
                                 scope.launch {
                                     DebugLogger.logDebug("MapScreen", "Calculating route between markers")
                                     try {
                                         drawSafestRoute(
                                             map, startMarker!!, destMarker!!,
-                                            isSafestMode, spatialIndex, routePolys, context
+                                            isSafestMode, routePolys, context
                                         ) { routePolys = it }
                                         DebugLogger.logDebug("MapScreen", "Route calculation complete")
                                     } catch (e: Exception) {
@@ -243,23 +201,11 @@ fun MapScreen() {
                                 if (startMarker != null && destMarker != null) {
                                     DebugLogger.logDebug("MapScreen", "Marker dragged, recalculating route")
                                     
-                                    // Obtain the spatial index reference again
-                                    val spatialIndex = crimeIndex ?: run {
-                                        if (crimeData.isNotEmpty()) {
-                                            CrimeSpatialIndex(crimeData)
-                                        } else null
-                                    }
-                                    
-                                    if (spatialIndex == null) {
-                                        DebugLogger.logError("MapScreen", "Cannot recalculate route: no spatial index")
-                                        return
-                                    }
-                                    
                                     scope.launch {
                                         try {
                                             drawSafestRoute(
                                                 map, startMarker!!, destMarker!!,
-                                                isSafestMode, spatialIndex, routePolys, context
+                                                isSafestMode, routePolys, context
                                             ) { routePolys = it }
                                         } catch (e: Exception) {
                                             DebugLogger.logError("MapScreen", "Error recalculating route", e)
@@ -274,38 +220,6 @@ fun MapScreen() {
         )
     }
 
-    /*── react to date‑filter change ───────────────────────*/
-    LaunchedEffect(selectedFilter) {
-        if (isLoading || crimeData.isEmpty()) return@LaunchedEffect
-        
-        googleMap?.let { map ->
-            map.clear()
-            if (map.cameraPosition.zoom >= 14f) {
-                showMarkers(map, crimeData, selectedFilter, crimeMarkerIcon)
-                isShowingMarkers.value = true
-            } else {
-                addHeatMap(map, crimeData, selectedFilter)
-                isShowingMarkers.value = false
-            }
-        }
-    }
-    
-    // Update map when crime data changes
-    LaunchedEffect(crimeData) {
-        if (isLoading || crimeData.isEmpty()) return@LaunchedEffect
-        
-        googleMap?.let { map ->
-            map.clear()
-            if (map.cameraPosition.zoom >= 14f) {
-                showMarkers(map, crimeData, selectedFilter, crimeMarkerIcon)
-                isShowingMarkers.value = true
-            } else {
-                addHeatMap(map, crimeData, selectedFilter)
-                isShowingMarkers.value = false
-            }
-        }
-    }
-
     /*── Bottom sheet with slider & buttons ───────────────*/
     if (bottomSheet && startMarker != null && destMarker != null) {
 
@@ -318,28 +232,16 @@ fun MapScreen() {
             riskScore = risk,
             highRiskSegments = 0, // We don't track high-risk segments in this screen
             isSafestMode = isSafestMode,
-            onSafestModeChanged = { newMode ->
+                onSafestModeChanged = { newMode ->
                 isSafestMode = newMode
                 googleMap?.let { map ->
                     drawJob?.cancel()          // stop previous coroutine
                     drawJob = scope.launch {
                         delay(100)             // small delay for UI responsiveness
-                        
-                        // Obtain the spatial index reference again
-                        val spatialIndex = crimeIndex ?: run {
-                            if (crimeData.isNotEmpty()) {
-                                CrimeSpatialIndex(crimeData)
-                            } else null
-                        }
-                        
-                        if (spatialIndex != null) {
-                            drawSafestRoute(
-                                map, startMarker!!, destMarker!!,
-                                isSafestMode, spatialIndex, routePolys, context
-                            ) { routePolys = it }
-                        } else {
-                            DebugLogger.logError("MapScreen", "Cannot recalculate route: no spatial index")
-                        }
+                        drawSafestRoute(
+                            map, startMarker!!, destMarker!!,
+                            isSafestMode, routePolys, context
+                        ) { routePolys = it }
                     }
                 }
             },
@@ -368,49 +270,18 @@ private fun configureInfoWindow(map: GoogleMap, ctx: Context) {
             val v = LayoutInflater.from(ctx).inflate(R.layout.marker_info_window, null)
             v.findViewById<ImageView>(R.id.info_window_icon)
                 .setImageResource(R.drawable.ic_question_mark)
-            (marker.tag as? CrimeData)?.let { c ->
-                v.findViewById<TextView>(R.id.info_window_text).text =
-                    "Date: ${c.date}\nType: ${c.type}\nRegion: ${c.region}"
-            }
+            // Show route marker details (start/destination)
+            v.findViewById<TextView>(R.id.info_window_text).text = marker.title ?: "Location"
             return v
         }
     })
 }
 
-// Date filter selection row UI component
-@Composable
-fun DateFilterRow(sel: DateFilterOption, onSel: (DateFilterOption)->Unit) {
-    Row(Modifier.fillMaxWidth().padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
-        listOf(
-            "Last 7 days" to DateFilterOption.LAST_7_DAYS,
-            "Last 30 days" to DateFilterOption.LAST_30_DAYS,
-            "All"          to DateFilterOption.ALL
-        ).forEachIndexed { i, (label,opt) ->
-            if (i>0) Spacer(Modifier.width(16.dp))
-            FilterRadioButton(label, opt, sel, onSel)
-        }
-    }
-}
-@Composable
-fun FilterRadioButton(
-    text: String, option: DateFilterOption,
-    selected: DateFilterOption, onSel: (DateFilterOption)->Unit
-) {
-    Row(verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.selectable(selected==option) { onSel(option) })
-    {
-        RadioButton(selected == option, onClick = { onSel(option) })
-        Text(text, Modifier.padding(start = 4.dp))
-    }
-}
-
-/* draw safest + alternates, then return new list */
-private suspend fun drawSafestRoute(
+/*────── Helper functions ───────────────────────────────*/
     map: GoogleMap,
     start: Marker,
     dest: Marker,
     isSafestMode: Boolean,
-    idx: CrimeSpatialIndex,
     oldPolys: List<Polyline>,
     appContext: Context,
     update: (List<Polyline>) -> Unit
@@ -426,9 +297,7 @@ private suspend fun drawSafestRoute(
         // Calculate safest route and alternatives (potentially heavy operation)
         DebugLogger.logDebug("MapScreen", "Calculating routes with SafeRoutePlanner")
         val routeResult = withContext(Dispatchers.Default) {
-            SafeRoutePlanner.safestRoute(
-                start.position, dest.position, isSafestMode, idx
-            )
+            SafeRoutePlanner.safestRoute(start.position, dest.position, isSafestMode)
         }
         
         val (best, alts) = routeResult
